@@ -277,7 +277,11 @@
     #numero_contratacion {
       text-align: center;
       font-size: 200%;
-    }
+      z-index: 9999999;
+      position: relative; /* Asegura que el z-index se aplique correctamente */
+      display: inline-block; /* Asegura que el enlace sea un bloque de contenido clickeable */
+  }
+
 
   .texto_typing {
     position: relative;

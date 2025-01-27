@@ -571,7 +571,6 @@ header{
     top: 50px; /* Remove absolute positioning */
     left: auto; /* Remove offset */
     position: relative;
-    z-index: 9999;
     padding: 20px 0;
   }
 
@@ -592,16 +591,13 @@ header{
     width: 70%; /* Adjust image size inside the icon */
     height: auto;
   }
+
+  .wrapper .tooltip{
+    display: none;
+  }
+
   .wrapper .tooltip::before {
-    position: absolute;
-    content: "";
-    height: 8px;
-    width: 8px;
-    background: #ffffff;
-    bottom: -3px;
-    left: 50%;
-    transform: translate(-50%) rotate(45deg);
-    transition: none; /* Remove animation */
+  display: none;
   }
 
   /* Tooltip hover effects */
