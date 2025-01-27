@@ -280,6 +280,8 @@
       z-index: 9999999;
       position: relative; /* Asegura que el z-index se aplique correctamente */
       display: inline-block; /* Asegura que el enlace sea un bloque de contenido clickeable */
+      -webkit-tap-highlight-color: transparent;
+      
   }
 
 
