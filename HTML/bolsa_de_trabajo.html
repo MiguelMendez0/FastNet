@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../CSS/index.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../RECURSOS/favicon.ico">
+    <link href="../CSS/APARTADOS/extenciones.css" rel="stylesheet">
+    <link href="../CSS/ITEMS/formulario-bolsa-trabajo.css" rel="stylesheet"> 
+    <title>Bolsa de Trabajo</title>
+</head>
+<body>
+  <div class="seccion_header">
+    <header>
+      <nav class="nav">
+        <div class="logo">
+          <img src="../RECURSOS/logo_oficial.png" alt="logo_fast-net">
+        </div>
+        <!-- Botón para desplegar el menú en responsive -->
+        <button class="menu-toggle" aria-label="Abrir menú">
+          ☰
+        </button>
+        <ul class="menu">
+          <li><a href="../HTML/index.html">INICIO</a></li>
+          <li><a href="#">COBERTURA</a></li>
+          <li><a href="../HTML/hogar.html" target="_blank"><img src="../RECURSOS/icono_casa.png">HOGAR</a></li>
+          <li><a href="../HTML/empresarial.html" target="_blank"><img src="../RECURSOS/icono_empresarial.png">EMPRESARIAL</a></li>
+          <li><a href="#"><img src="../RECURSOS/icono_movil.png">MOVIL</a></li>
+          <li><a href="../HTML/requisitos.html" target="_blank">REQUISITOS</a></li>
+        </ul>
+      </nav>  
+    </header>
+    
+
+        <ul class="wrapper">
+            <li class="icon facebook">
+                <span class="tooltip">Facebook</span>
+                <span><i class="fab fa-facebook-f"></i></span>
+                <a href="https://www.facebook.com/FastnetOficial?locale=es_LA" target="_blank"><img src="../RECURSOS/icono_facebook.png"></a>
+            </li>
+
+            <li class="icon instagram">
+                <span class="tooltip">Instagram</span>
+                <span><i class="fab fa-instagram"></i></span>
+                <a href="https://www.instagram.com/fastnetmx" target="_blank"><img src="../RECURSOS/icono_instagram.png"></a>
+            </li>
+
+            <li class="icon linkedin">
+                <span class="tooltip">LinkedIn</span>
+                <span><i class="fab fa-linkedin"></i></span>
+                <a href="https://www.linkedin.com/company/fastnet-telecom/?originalSubdomain=mx " target="_blank"><img src="../RECURSOS/icono_linkedin.png"></a>
+            </li>
+
+            <li class="icon correo">
+                <span class="tooltip">Correo</span>
+                <span><i class="fab fa-correo"></i></span>
+                <a href="mailto:clientes@fast-net.com.mx" target="_blank"><img src="../RECURSOS/icono_correo.png" alt="icono_correo"></a>
+            </li>
+
+            <li class="icon telefono">
+                <span class="tooltip">Telefono</span>
+                <span><i class="fab fa-telefono"></i></span>
+                <a href="tel:+52 9935240400" target="_blank"><img src="../RECURSOS/icono_telefono.png" alt="icono_telefono"></a>
+            </li>
+        </ul>  
+    </div>    
+
+    <div class="seccion_boton"> 
+        <div class="container_boton_flotante">
+            <input type="checkbox" id="toggle">
+            <label for="toggle" class="button"></label>
+            <p class="help">Asistencia</p>
+
+            <nav class="nav_boton">
+                <a href="tel:9935240400" target="_blank">Atención al cliente
+                    <img class="img_b" src="../RECURSOS/centro-de-llamadas.png">
+                </a>
+                <a href="https://wa.me/9934310800" target="_blank">Contrataciones
+                    <img class="img_a" src="../RECURSOS/whatsapp.png">
+                </a>
+            </nav>
+        </div>
+    </div>
+    <div class="contenido-bolsa">
+        <h2>Trabaja Con Nosotros</h2>
+        <h3>Déjanos todos tus datos para que el equipo de Recursos Humanos te contacte. </h3>
+
+        <form action="bolsa.php" method="POST" enctype="multipart/form-data">
+            <img src="../RECURSOS/logo_blanco.png" alt="Logo-FastNet">
+            <label for="nombre">Nombre Completo</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre completo" required>
+
+            <label for="telefono">Teléfono de Contacto</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="Ingresa tu teléfono" required>
+
+            <label for="correo">Correo Electrónico</label>
+            <input type="email" id="correo" name="correo" placeholder="Ingresa tu correo electrónico" required>
+
+            <label for="puesto">Puesto Solicitado</label>
+            <input type="text" id="puesto" name="puesto" placeholder="Ingresa el puesto solicitado" required>
+
+            <label for="radicas">¿Dónde radicas?</label>
+            <input type="text" id="radicas" name="radicas" placeholder="Ingresa tu ciudad o localidad" required>
+
+            <label for="grado_estudios">Grado de Estudios</label>
+            <select id="grado_estudios" name="grado_estudios" required>
+                <option value="#">Selecciona</option>
+                <option value="secundaria">Secundaria</option>
+                <option value="preparatoria_concluida">Preparatoria Concluida</option>
+                <option value="preparatoria_finalizada">Preparatoria Finalizada</option>
+                <option value="licenciatura_trunca">Licenciatura Trunca o en Curso</option>
+                <option value="licenciatura_finalizada">Licenciatura Finalizada</option>
+            </select>
+
+            <label for="cv">Adjunta tu CV o Solicitud de empleo</label>
+            <label for="cv" class="input-file-container">
+                <span>Seleccionar PDF</span>
+                <input type="file" id="cv" name="cv" accept=".pdf" required onchange="displayFilePreview()">
+            </label>
+            
+            <div id="file-info" class="file-info">
+                <img id="file-preview" src="" alt="Vista previa del PDF" style="display:none;" />
+                <span id="file-name"></span>
+            </div>
+            
+
+            <div class="checkbox-container">
+                <input type="checkbox" id="consentimiento" name="consentimiento" required>
+                <label for="consentimiento">Estoy de acuerdo en que estos datos se almacenen y procesen con el fin de establecer contacto. Soy consciente de que puedo revocar mi consentimiento en cualquier momento.*</label>
+            </div>
+
+            <button type="submit">Enviar</button>
+        </form>
+
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29053.675531912577!2d-92.95673188634672!3d17.989630640286546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ee77f2b813f459%3A0x492aa77e5b57ffd9!2sFastnet%20Administraci%C3%B3n!5e0!3m2!1ses-419!2smx!4v1733758400688!5m2!1ses-419!2smx" 
+            width="100%" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+    <footer>
+
+        <div class="tabla">
+          <div class="columna titulo">Tipo de Servicio</div>
+          <div class="columna titulo">Planes</div>
+          <div class="columna titulo">Recursos</div>
+          <div class="columna titulo">Transparencia</div>
+      
+          <!-- Filas de datos -->
+            <a href="../HTML/hogar.html">
+              <div class="columna">Hogar</div>
+            </a>
+            <a href="../HTML/paquetes-simplificados.html">
+              <div class="columna">Plan a tu medida 30Mbps</div>
+            </a>
+            <a href="../HTML/requisitos.html">
+              <div class="columna">Requisitos de contratación</div>
+            </a>
+            <a href="../HTML/etica.html">
+              <div class="columna">Código de ética</div>
+            </a>
+      
+              <a href="../HTML/empresarial.html">
+                <div class="columna">Empresarial</div>
+              </a>
+              <a href="../HTML/paquetes-simplificados.html">
+                <div class="columna">Plan a tu medida 50Mbps</div>
+              </a>
+              <a href="../HTML/formulario.php">
+              <div class="columna">Quiero Contratar FastNet</div>
+              </a>
+              <a href="../HTML/etica-comercio.html">
+                <div class="columna">Codigo de Ética de Comercio Electrónico</div>
+              </a>
+      
+        
+              <div class="columna"></div>
+      
+              <a href="../HTML/paquetes-simplificados.html">
+                <div class="columna">Plan a tu medida 100Mbps</div>
+              </a>
+              <a href="../HTML/terminos.html">
+                <div class="columna">Términos y condiciones</div>
+              </a>
+              <a href="../HTML/practicas-comerciales.html">
+                <div class="columna">Código de Prácticas Comerciales</div>
+              </a>
+      
+      
+              <div class="columna"></div>
+      
+              <a href="../HTML/paquetes-simplificados.html">
+                <div class="columna">Plan a tu medida 200Mbps</div>
+              </a>
+              <a href="../HTML/carta_derecho.html">
+                <div class="columna">Carta de derecho de usuario</div>
+              </a>
+              <a href="../HTML/politicas-gestion-trafico.html">
+                <div class="columna">Código de Políticas de Gestión de Trafico</div>
+              </a>
+      
+              
+            <div class="columna"></div>
+           
+              <a href="../HTML/paquetes-simplificados.html">
+                <div class="columna">Plan a tu medida 500Mbps</div>
+              </a>
+              <a href="../HTML/aviso-privacidad.html">
+                <div class="columna">Aviso de Privacidad</div>
+              </a>
+              <a href="../HTML/contrato-adhesion.html">
+                <div class="columna">Contrato de Adhesión</div>
+              </a>
+              
+      
+              <div class="columna"></div>
+      
+              <a href="../HTML/paquetes-simplificados.html">
+                <div class="columna">Plan a tu medida 1000Mbps</div>
+              </a>
+              <a href="../HTML/bolsa_de_trabajo.html">
+                <div class="columna">Bolsa de trabajo</div>
+              </a>
+              <a href="../HTML/contrato-adhesion.html">
+                <div class="columna">Registro de Marca</div>
+              </a>
+      
+              <div class="columna"></div>
+              <div class="columna"></div>
+              <a href="../HTML/sistema-facturacion.html">
+                <div class="columna">Sistema De Facturación</div>
+                </a>
+              <a href="../HTML/buzon-sugerencias.html">
+                <div class="columna">Buzon de Quejas o Sugerencias</div>
+              </a>
+      
+        </div>
+      
+            <div class="letras_footer">
+                <p>© Fastnet, 2024. Internet por fibra óptica y telefonía ilimitada.</p>
+            </div>
+            
+              <div class="img_profeco">
+                <img src="../RECURSOS/profeco.png" alt="profeco">
+              </div>
+      
+              <div class="img_logo_blanco">
+                <img src="../RECURSOS/logo_blanco.png" alt="logo_fast-net_blanco">
+              </div>
+            </footer>
+
+    <script src="../JAVASCRIPT/bolsa.js"></script>
+    <script src="/JAVASCRIPT/desplegable-movil.js"></script>
+</body>
+</html>

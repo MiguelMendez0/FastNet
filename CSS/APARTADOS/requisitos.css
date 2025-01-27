@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Aldrich&display=swap');
+
+.cuerpo-requisitos {
+    width: auto;
+    height: 1700px;
+    position: relative;
+    top: 5%;
+}
+
+h1 {
+    color: white;
+    position: relative;
+    font-family: "Aldrich", sans-serif;
+    left: 5%;
+    font-size: 300%;
+}
+
+h2 {
+    color: #ffffff;
+    text-align: center;
+    padding-left: 10%;
+    padding-right: 10%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 200%;
+}
+
+.requisitos-table {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 30px;
+    justify-items: center;
+    margin: 30px;
+    border-radius: 8px;
+
+}
+
+.requisitos-table div {
+    padding: 20px;
+    text-align: center;
+    background-color: rgba(112, 26, 146, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Añade transición */
+}
+
+.requisitos-table div:hover {
+    transform: scale(0.9); /* Efecto de zoom al pasar el cursor */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Añade una sombra para realzar el efecto */
+}
+
+.requisitos-table ul {
+    display: inline-block; /* Permite que el contenedor ajuste su tamaño */
+    width: auto; /* Se adapta al contenido */
+    max-width: 100%; /* Respeta el ancho del contenedor principal */
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto;
+    text-align: center; /* Centra el contenido */
+}
+
+.requisitos-table li {
+    display: block; /* Asegura que cada elemento ocupe una línea */
+    margin: 10px 0; /* Espaciado entre los elementos */
+    font-size: 130%;
+    color: rgb(255, 255, 255);
+    text-align: left;
+}
+
+/* Estilos específicos por ID para imágenes */
+#ine {
+    width: 50%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+#luz {
+    width: 30%;
+    height: auto;
+    margin-bottom: 15px;
+    position: relative;
+    left: 100px;
+}
+
+#correo {
+    width: 35%;
+    height: auto;
+    margin-bottom: 15px;
+    position: relative;
+    top: 80px;
+}
+
+#localizacion {
+    width: 25%;
+    height: auto;
+    margin-bottom: 15px;
+    position: relative;
+    top: 130px;
+}
+
+#constancia {
+    width: 65%;
+    height: auto;
+    margin-bottom: 15px;
+    position: relative;
+    top: 60px;
+}
+
+#pago {
+    width: 40%;
+    height: auto;
+    margin-bottom: 15px;
+    position: relative;
+    top: 40px;
+}
+
+/* Estilos generales para imágenes */
+.requisitos-table img {
+    display: block; /* Centra las imágenes */
+    margin: 0 auto; /* Centra horizontalmente */
+    height: auto; /* Mantiene la proporción */
+}
+
+.requisitos-table h3 {
+    text-align: center;
+    color: white;
+    margin-bottom: 15px;
+    font-size: 250%;
+    font-family: "Aldrich", sans-serif;
+    text-shadow: 
+        -1px -1px 0 #ff7707, /* Sombra superior izquierda */
+        1px -1px 0 #ff7707,  /* Sombra superior derecha */
+        -1px 1px 0 #ff7707,  /* Sombra inferior izquierda */
+        1px 1px 0 #ff7707;   /* Sombra inferior derecha */
+}
+
+.requisitos-table p {
+    text-align: center;
+    color: #ffffff;
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-size: 130%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* Diseño para hacer la tabla responsive */
+@media (max-width: 600px) {
+    ñ{
+        border: 1px solid red;
+    }
+    .cuerpo-requisitos{
+        position: relative;
+        margin-top: 15%;
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cuerpo-requisitos h1{
+        left: 0;
+        text-align: center;
+        font-size: 150%;
+    }
+
+    .cuerpo-requisitos h2{
+        text-align: center;
+        font-size: 100%;
+    }
+
+    .requisitos-table {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+        justify-items: center;
+
+        border-radius: 8px;
+    
+    }
+    
+    .requisitos-table div {
+        text-align: center;
+        background-color: rgba(112, 26, 146, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Añade transición */
+    }
+    
+    .requisitos-table div:hover {
+        transform: scale(0.9); /* Efecto de zoom al pasar el cursor */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Añade una sombra para realzar el efecto */
+    }
+    
+    .requisitos-table ul {
+        display: inline-block; /* Permite que el contenedor ajuste su tamaño */
+        width: auto; /* Se adapta al contenido */
+        max-width: 100%; /* Respeta el ancho del contenedor principal */
+        list-style-type: none;
+        padding: 0;
+        margin: 0 auto;
+        text-align: center; /* Centra el contenido */
+    }
+    
+    .requisitos-table li {
+        display: block; /* Asegura que cada elemento ocupe una línea */
+        margin: 10px 0; /* Espaciado entre los elementos */
+        font-size: 80%;
+        color: rgb(255, 255, 255);
+        text-align: left;
+    }
+    
+    /* Estilos específicos por ID para imágenes */
+    #ine {
+        width: 50%;
+        height: auto;
+        margin-bottom: 15px;
+    }
+    
+    #luz {
+        width: 30%;
+        height: auto;
+        margin-bottom: 15px;
+        position: relative;
+        left: 0;
+    }
+    
+    #correo {
+        width: 35%;
+        height: auto;
+        margin-bottom: 15px;
+        position: relative;
+        top: 10px;
+    }
+    
+    #localizacion {
+        width: 25%;
+        height: auto;
+        margin-bottom: 15px;
+        position: relative;
+        top: 10px;
+    }
+    
+    #constancia {
+        width: 65%;
+        height: auto;
+        margin-bottom: 15px;
+        position: relative;
+        top: 10px;
+    }
+    
+    #pago {
+        width: 40%;
+        height: auto;
+        margin-bottom: 15px;
+        position: relative;
+        top: 10px;
+    }
+    
+    /* Estilos generales para imágenes */
+    .requisitos-table img {
+        display: block; /* Centra las imágenes */
+        margin: 0 auto; /* Centra horizontalmente */
+        height: auto; /* Mantiene la proporción */
+    }
+    
+    .requisitos-table h3 {
+        text-align: center;
+        color: white;
+        margin-bottom: 15px;
+        font-size: 250%;
+        font-family: "Aldrich", sans-serif;
+        text-shadow: 
+            -1px -1px 0 #ff7707, /* Sombra superior izquierda */
+            1px -1px 0 #ff7707,  /* Sombra superior derecha */
+            -1px 1px 0 #ff7707,  /* Sombra inferior izquierda */
+            1px 1px 0 #ff7707;   /* Sombra inferior derecha */
+    }
+    
+    .requisitos-table p {
+        text-align: center;
+        color: #ffffff;
+        font-weight: 700;
+        margin-bottom: 15px;
+        font-size: 130%;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+}

@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Aldrich&display=swap');
+/* Estilos para el contenedor principal */
+.contenido-simplificado {
+    width: 80%;
+    min-height: 500px;  /* Asegura que el contenido tenga al menos esta altura */
+    position: relative;
+    top: 15%;
+    margin: 0 auto;
+    color: white;
+    font-family: "Aldrich", sans-serif;
+    padding-bottom: 300px;  /* Asegura que haya espacio suficiente para el footer */
+}
+
+.contenido-simplificado h1{
+    text-align: center;
+}
+.contenedor-simplificado {
+    margin:0 auto;
+    text-align: center;
+}
+
+/* Estilo para los botones */
+button {
+    margin: 20px;
+    padding: 10px 20px;
+    background-color: rgb(106, 52, 139);
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 150%;
+    font-family:"Aldrich", sans-serif; 
+    transition: transform 0.3s ease;  /* Transición fluida para el efecto de transform */
+}
+
+/* Hover para los botones */
+button:hover {
+    transform: scale(1.1);  /* Aumenta el tamaño del botón al hacer hover */
+}
+
+
+/* Estilo para los iframes ocultos */
+.pdf-container {
+    display: none;  /* Los iframes están ocultos por defecto */
+    margin-top: 20px;
+}
+
+/* Estilos para los iframes */
+iframe {
+
+    border-radius: 10px;
+}
+
+/* Estilo para el botón de cerrar */
+#closeBtn {
+    background-color: #f44336;  /* Rojo para el botón de cerrar */
+}
+
+/* Hover para el botón de cerrar */
+#closeBtn:hover {
+    background-color: #e53935; /* Rojo oscuro */
+}
+
+@media (max-width: 600px) {
+    .contenido-simplificado {
+        margin-top: 15%;
+        width: 100%;
+        min-height: auto;
+  
+    }
+
+    .contenido-simplificado h1 {
+        font-size: 1.2em; /* Ajusta el tamaño del texto */
+        text-align: center;
+        line-height: 1.4; /* Mejora la legibilidad */
+    }
+
+    .contenedor-simplificado {
+        text-align: center;
+    }
+
+    .contenido-simplificado .contenedor-simplificado button {
+        width: auto; /* Los botones ocuparán casi todo el ancho */
+        margin: 10px auto; /* Centra y reduce el margen */
+        padding: 10px;
+        font-size: 10px; /* Ajusta el tamaño de fuente */
+    }
+
+    iframe {
+        width: 100%; /* Iframe se ajusta al ancho del contenedor */
+        height: auto;
+        border-radius: 10px;
+    }
+
+    #closeBtn {
+        width: 20%; /* Alineado con los demás botones */
+        font-size: 10px;
+    }
+
+    span{
+        font-size: 10px;
+    }
+
+    .menu-toggle{
+        position: absolute;
+        left: 5%;
+        top: -1px;
+    }
+}

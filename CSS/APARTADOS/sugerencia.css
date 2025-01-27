@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Aldrich&display=swap');
+
+.contenido-sugerencia {
+    position: relative;
+    top: 10%;
+    height: auto;
+    padding-bottom: 10%;
+    font-family: "Aldrich", sans-serif;
+}
+
+/* Estilo general del formulario */
+form {
+    max-width: 600px;
+    border-radius: 30px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgb(129, 129, 129);
+}
+
+form img {
+    display: block;
+    max-width: 250px;
+    margin: 0 auto 20px;
+}
+
+/* Estilo de las etiquetas */
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: white;
+}
+
+/* Estilo de los campos de entrada y textarea */
+form input[type="text"],
+form textarea {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: white;
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    border: none;
+    transition: border-color 0.3s;
+}
+
+form textarea {
+    resize: none;
+}
+
+/* Cambiar el borde al enfocarse */
+form input:focus,
+form textarea:focus {
+    border-color: none;
+    outline: none;
+    box-shadow: none;
+}
+
+/* Estilo del contenedor de checkbox */
+.checkbox-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding-top: 10px;
+    margin-bottom: 20px;
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-top: 2px;
+}
+
+/* Estilo del botón de envío */
+form button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: rgb(236, 99, 56);
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background: #6A348B;
+}
+
+/* Estilo responsivo */
+@media (max-width: 600px) {
+
+    .contenido-sugerencia{
+        width: 100%;
+        height: auto;
+        position: relative;
+        margin-top: 15%;
+    }
+    form {
+  
+        border-radius: 0;
+    }
+
+    form label {
+        font-size: 14px;
+    }
+
+    form input[type="text"],
+    form textarea {
+        font-size: 14px;
+    }
+
+    form button {
+        font-size: 14px;
+    }
+}
+
+/* Estilo de encabezados */
+h1, h2 {
+    color: white;
+    text-align: center;
+}
+
+h1 {
+    font-size: 200%;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 120%;
+}

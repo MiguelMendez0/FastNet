@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Aldrich&display=swap');
+
+::before ::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main{
+    z-index: 20;
+    width: 100%;
+    height: auto;
+    position: relative;
+    top: 140px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items:center;
+    height: auto;
+    transition: 2s;
+}
+
+section{
+    background-color:rgba(255, 255, 255, 0.2);
+    color: white;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 270px;
+    margin: 10px;
+    transition: 0.5s;
+}
+
+section:hover{
+    transform: scale(1.1);
+}
+
+.plan{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0;
+    text-align: center;
+    font-size: 18px;
+    text-transform: uppercase;
+    padding: 10px;
+}
+
+.one{
+    background-color:rgb(106, 52, 139);
+}
+
+.two{
+    background-color:rgb(236, 99, 56);
+}
+
+.three{
+    background-color: rgb(151, 50, 99);
+}
+
+.four{
+    background-color:rgb(83, 122, 45);
+}
+
+.five{
+    background-color: rgb(255, 204, 0);
+}
+
+.megas{
+    font-family: "Aldrich", sans-serif;
+    margin: 0;
+    text-align: center;
+    font-size: 40px;
+    text-transform: uppercase;
+    padding: 10px;
+}
+
+.uno{
+    background-color:rgb(106, 52, 139);     
+}
+
+.dos{
+    background-color:rgb(236, 99, 56);
+}
+
+.tres{
+    background-color: rgb(151, 50, 99);
+}
+
+.cuatro{
+    background-color:rgb(83, 122, 45);
+}
+
+.cinco{
+    background-color: rgb(255, 204, 0);
+}
+.precio{
+    font-size: 20px;
+    font-family: "Aldrich", sans-serif;
+}
+.precio span{
+    display: block;
+    font-size: 60px;
+}
+
+.hasta span{
+    display: block;
+    font-size: 18px;
+    font-family: "Aldrich", sans-serif;
+}
+
+.hasta{
+    font-size: 40px;
+    font-family: "Aldrich", sans-serif;
+}
+
+section ul {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    list-style: none;
+    padding: 20px;
+
+}
+
+section ul li{
+    padding: 20px;
+}
+
+.btn_contrata {
+    --border-color: linear-gradient(-45deg, #ffae00, #7e03aa, #00fffb);
+    --border-width: 0.125em;
+    --curve-size: 0.5em;
+    --blur: 30px;
+    --bg: #080312;
+    --color: #afffff;
+    color: var(--color);
+    cursor: pointer;
+    /* use position: relative; so that BG is only for .btn */
+    position: relative;
+    isolation: isolate;
+    display: inline-grid;
+    place-content: center;
+    padding: 0.5em 1.5em;
+    font-size: 17px;
+    border: 0;
+    text-transform: uppercase;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.6);
+    clip-path: polygon(
+      /* Top-left */ 0% var(--curve-size),
+      var(--curve-size) 0,
+      /* top-right */ 100% 0,
+      100% calc(100% - var(--curve-size)),
+      /* bottom-right 1 */ calc(100% - var(--curve-size)) 100%,
+      /* bottom-right 2 */ 0 100%
+    );
+    transition: color 250ms;
+  }
+  
+  .btn_contrata::after,
+  .btn_contrata::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
+  
+  .btn_contrata::before {
+    background: var(--border-color);
+    background-size: 300% 300%;
+    animation: move-bg7234 5s ease infinite;
+    z-index: -2;
+  }
+  
+  @keyframes move-bg7234 {
+    0% {
+      background-position: 31% 0%;
+    }
+  
+    50% {
+      background-position: 70% 100%;
+    }
+  
+    100% {
+      background-position: 31% 0%;
+    }
+  }
+  
+  .btn_contrata::after {
+    background: var(--bg);
+    z-index: -1;
+    clip-path: polygon(
+      /* Top-left */ var(--border-width)
+        calc(var(--curve-size) + var(--border-width) * 0.5),
+      calc(var(--curve-size) + var(--border-width) * 0.5) var(--border-width),
+      /* top-right */ calc(100% - var(--border-width)) var(--border-width),
+      calc(100% - var(--border-width))
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+      /* bottom-right 1 */
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+        calc(100% - var(--border-width)),
+      /* bottom-right 2 */ var(--border-width) calc(100% - var(--border-width))
+    );
+    transition: clip-path 500ms;
+  }
+  
+  .btn_contrata:where(:hover, :focus)::after {
+    clip-path: polygon(
+      /* Top-left */ calc(100% - var(--border-width))
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+      calc(100% - var(--border-width)) var(--border-width),
+      /* top-right */ calc(100% - var(--border-width)) var(--border-width),
+      calc(100% - var(--border-width))
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+      /* bottom-right 1 */
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+        calc(100% - var(--border-width)),
+      /* bottom-right 2 */
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+        calc(100% - var(--border-width))
+    );
+    transition: 200ms;
+  }
+  
+  .btn_contrata:where(:hover, :focus) {
+    color: #fff;
+  }
+  
+
+

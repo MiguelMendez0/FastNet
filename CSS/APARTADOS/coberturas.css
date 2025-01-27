@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Aldrich&display=swap');
+.contenido-coberturas{
+    width: 100%;
+    height: auto;
+    position: relative;
+    top: 5%;
+}
+
+.encavezado-cobertura{
+
+}
+
+h1{
+  color: rgb(231, 92, 12);
+  font-size: 300%;
+  font-family: "Aldrich", sans-serif;
+  text-transform: uppercase;
+  text-align: left;
+  padding-left: 5%;
+}
+
+p{
+  color: white;
+  font-size: 150%;
+  text-align: center;
+}
+
+#importante{
+  color: rgb(255, 255, 255);
+  font-size: 150%;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.contenedor-coberturas-grid {
+    margin: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px; /* Ajusta el espacio entre las imágenes */
+    margin-bottom: 10%;
+}
+
+.tabla-estado {
+    width: 100%;
+    height: 300px; /* Mantén la altura fija */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+.img-estado{
+    width: 90%; /* Asegura que la imagen ocupe todo el ancho del contenedor */
+    height: 150px; /* Ajusta la altura fija de las imágenes */
+    object-fit: cover; /* Mantiene la relación de aspecto sin distorsionar la imagen */
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.2);
+}
+
+
+h2 {
+    margin: 10px 0;
+    color: white;
+    font-family: "Aldrich", sans-serif;
+    font-size: 180%;
+}
+
+
+.button-requisitos {
+    position: relative;
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    outline-offset: 4px;
+    transition: filter 250ms;
+  }
+  
+  .shadow {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: hsl(0deg 0% 0% / 0.25); /* Sombra negra transparente */
+    will-change: transform;
+    transform: translateY(2px);
+    transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+  }
+  
+  .edge {
+    position: absolute;
+    top: 3px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: linear-gradient(
+      to left,
+      hsl(20, 100%, 30%) 0%, /* Naranja más oscuro */
+      hsl(20, 100%, 40%) 8%,
+      hsl(20, 100%, 40%) 92%,
+      hsl(20, 100%, 30%) 100% /* Naranja más oscuro */
+    );
+  }
+  
+  .front {
+    display: block;
+    position: relative;
+    padding: 12px 42px;
+    border-radius: 12px;
+    font-size: 1.25rem;
+    color: white;
+    background: hsl(20, 100%, 66%); /* Naranja medio */
+    will-change: transform;
+    transform: translateY(-4px);
+    transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+  }
+  
+  .button-requisitos:hover {
+    filter: brightness(110%);
+  }
+  
+  .button-requisitos:hover .front {
+    transform: translateY(-6px);
+    transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+  }
+  .button-requisitos:active .front {
+    transform: translateY(-2px);
+    transition: transform 34ms;
+  }
+  
+  .button-requisitos:hover .shadow {
+    transform: translateY(4px);
+    transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+  }
+  .button-requisitos:active .shadow {
+    transform: translateY(0px);
+    transition: transform 34ms;
+  }
+  
+  .button-requisitos:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+.hidden-tabasco{
+  display: none;
+  
+}
+
+.hidden-campeche{
+  display: none;
+}
+
+.hidden-chiapas{
+  display: none;
+}
+
+.hidden-chihuahua{
+  display: none;
+}
+
+.hidden-coahuila{
+  display: none;
+}
+
+
+  .contenido-coberturas-grid-municipios{
+    display: none;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Cuatro columnas por fila */
+    gap: 20px; /* Espacio entre tarjetas */
+    padding: 20px; /* Espaciado interno */
+    max-width: 1200px; /* Ancho máximo del contenedor */
+    margin-bottom: 10%;
+}
+
+.tabla-municipios {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tabla-municipios:hover {
+    transform: scale(1.05); /* Efecto de escala al pasar el cursor */
+}
+
+.img-municipio {
+    width: 250px; /* Imagen adaptativa */
+    height: 250px;
+    object-fit: cover; /* Relación de aspecto sin distorsión */
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.tabla-municipios h2 {
+    color: #ffffff; /* Texto oscuro */
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+.tabla-municipios ul {
+    list-style: none; /* Eliminar puntos de lista */
+    padding: 0;
+    margin: 0 0 10px 0;
+    font-size: 1rem;
+    color: #ffffff; /* Color de texto */
+}
+
+.tabla-municipios ul li {
+    margin-bottom: 5px; /* Separación entre líneas */
+    line-height: 1.5; /* Altura de línea */
+}
+
+.municipio_btn {
+    background: linear-gradient(90deg, #f9a825, #f57f17); /* Botón degradado naranja */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-weight: 700;
+    font-size: 120%;
+}
+
+.municipio_btn:hover {
+    background: linear-gradient(90deg, #f57f17, #e65100); /* Cambio de color al pasar */
+}
+
+iframe {
+  width: 100%;
+  height: 100vh;
+  border: none;
+  margin-bottom: 3%;
+  pointer-events: none;
+}
+
+#iframes-container {
+  position: relative;
+}
+
+.iframe-wrapper {
+  position: relative;
+  margin-bottom: 20px; /* Ajusta el espacio entre los iframes */
+}
+
+.floating-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgb(236, 99, 56);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 19px;
+  font-family: "Aldrich", sans-serif;
+  display: none; /* El botón está oculto por defecto */
+}
+
+.floating-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* El botón se muestra cuando el iframe está visible */
+.iframe-wrapper iframe[style*="display: block"] + .floating-button {
+  display: block;
+}

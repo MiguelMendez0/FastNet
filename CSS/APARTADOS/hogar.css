@@ -1,0 +1,900 @@
+@import url('https://fonts.googleapis.com/css2?family=Aldrich&display=swap');
+
+.contenedor-hogar{
+  width: 100%;
+  height: 2700px;
+}
+
+.contenedor-letras-hogar{
+  padding-left: 5%;
+  width: 50%;
+  height: auto;
+  text-align: center;
+  position: relative;
+  top: 120px;
+}
+
+.contenedor-letras-hogar h1{
+  color:white;
+}
+
+.contenedor-letras-hogar h2{
+  color:white;
+}
+
+/* From Uiverse.io by gharsh11032000 */ 
+.card-container {
+  width: 700px;
+  height: 500px;
+  position: relative;
+  top: 200px;
+  padding-left: 3%;
+  overflow: hidden;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+
+.card .front-content {
+  color: white;
+  text-align: center;
+  padding-top: 20px;
+  line-height: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-direction: column;
+}
+
+
+.card .front-content .animated-text {
+  width: 100%;
+  position: relative;
+  bottom: 30%;
+  font-weight: 700;
+  font-family: "Aldrich", sans-serif;
+  font-size: 150%;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  z-index: 2;
+}
+
+.card .front-content .animated-text span{
+  font-size: 130%;
+  text-align: center;
+  position: relative;
+  left: 33%;
+  }
+
+.heading{
+    color: black;
+    font-size: 150%;
+    font-weight: 700;
+    position: relative;
+    left: 15%;
+  }
+
+.payment-options{
+  width: 100%;
+  height: auto;
+}
+
+.payment-options a{
+  text-decoration: none;
+}
+
+.payment-options .payment-item{
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 6%;
+}
+.payment-options .payment-item h3{
+  color:white;
+  font-size: 150%;
+  text-align: left;
+  padding-left: 5%;
+}
+
+.payment-options .payment-item p{
+  color:white;
+  font-size: 120%;
+  text-align: left;
+  padding-left: 5%;
+}
+
+
+
+.payment-options .payment-item-izq{
+  width: 100%;
+  height: auto;
+  text-align: end;
+}
+  .payment-options .payment-item-izq h3{
+  color:white;
+  font-size: 150%;
+  padding-right: 5%;
+}
+
+.payment-options .payment-item-izq p{
+    color:white;
+    font-size: 120%;
+    padding-right: 5%;
+}
+
+
+
+
+#img-edificio{
+  width: 15%;
+  height: auto;
+  position: absolute;
+  bottom: 60%;
+  left: 35%;
+}
+
+#img-transferencia{
+  width: 20%;
+  height: auto;
+  position: absolute;
+  bottom: 30%;
+  left: 67%;
+}
+
+#img-oxxo{
+  width: 18%;
+  height: auto;
+  position: absolute;
+  bottom: 25%;
+  left: 32%;
+}
+
+
+.card .front-content .animated-text div:first-of-type {
+  animation: showup 12s infinite;
+}
+
+.card .front-content .animated-text div:last-of-type {
+  width: 0;
+  animation: reveal 12s infinite;
+}
+
+.card .front-content .animated-text div:last-of-type span {
+  margin-left: -355px;
+  animation: slidein 12s infinite;
+}
+
+.card .front-content .static-image {
+  position: absolute;
+  width: 20%;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.card .content {
+  text-decoration: none;
+  position: absolute;
+  top: 0;
+  width: 700px;
+  height: 500px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(-45deg, #ff0f7b 0%, #ffb861 100%);
+  color: #e8e8e8;
+  padding:2% 0;
+  pointer-events: auto;
+  transform: translateY(96%);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.card:hover .content {
+  transform: translateY(0);
+}
+
+.card:hover .front-content {
+  transform: translateY(-30%);
+}
+
+.card:hover .front-content .animated-text {
+  opacity: 0;
+}
+
+/* Animations */
+@keyframes showup {
+  0% { opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes slidein {
+  0% { margin-left: -800px; }
+  20% { margin-left: -800px; }
+  35% { margin-left: 0; }
+  100% { margin-left: 0; }
+}
+
+@keyframes reveal {
+  0% { opacity: 0; width: 0; }
+  20% { opacity: 1; width: 0; }
+  30% { width: 355px; }
+  80% { opacity: 1; }
+  100% { opacity: 0; width: 355px; }
+}
+
+
+.contenedor-pagos{
+  width: 800px;
+  height: auto;
+  position: relative;
+  left: 50%;
+  bottom: 13%;
+}
+
+.contenedor-pagos img{
+  width: 40%;
+  height: auto;
+  position: relative;
+  left: 16%;
+  transform: translateX(38%);
+}
+
+.horario{
+  line-height: 0.3;
+}
+.contenedor-pagos h1{
+  color:white;
+  text-align: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 250%;
+}
+#dias{
+  color:white;
+  font-size: 180%;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-align: center;
+  font-weight: 700;
+}
+
+#horas{
+  color: white;
+  font-size: 150%;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-align: center;
+  font-weight: 400;
+  
+}
+
+
+
+.contenedor-fechas{
+  width: 100%;
+  height: auto;
+  position: relative;
+  bottom: 18%;
+}
+
+.contenedor-fechas .flyers-fecha-hora{
+  width: 100%;
+  height: auto;
+}
+
+.contenedor-fechas .flyers-fecha-hora img{
+  width: 100%;
+  height: auto;
+}
+
+.contenedor-img-res{
+  width: 100%;
+  height: auto;
+  position: relative;
+  left: 56%;
+  bottom: 22%;
+}
+
+.contenedor-img-res .img-res{
+  width: 45%;
+  height: auto;
+}
+
+.contenedor-img-res .img-res img{
+  width: 70%;
+  height: auto;
+}
+
+.oferta-telefonia{
+  width: 650px;
+  height: 500px;
+  position: relative;
+  left: 8%;
+  bottom: 36%;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.oferta-telefonia .info-tel{
+  width: 100%;
+  height: auto;
+}
+
+.oferta-telefonia .info-tel h1{
+  background-color: purple;
+  font-size: 400%;
+  color:white;
+  font-family: "Aldrich", sans-serif;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.oferta-telefonia .info-tel-p{
+  color:white;
+  text-align: center;
+  font-size: 150%;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  line-height: 1;
+}
+
+.oferta-telefonia h2 {
+  line-height: 0.1;
+  font-size: 7rem;
+  color: white;
+  text-align: center;
+  text-shadow: 
+    -2px -2px 0 #f00,  /* Rojo */
+    2px -2px 0 #0f0,  /* Verde */
+    -2px 2px 0 #00f,  /* Azul */
+    2px 2px 0 #ff0;  /* Amarillo */
+  animation: glitch 3.5s infinite;
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0, -2px);
+    text-shadow: 
+      -2px -2px 0 #f00,  
+      2px -2px 0 #0f0,  
+      -2px 2px 0 #00f,  
+      2px 2px 0 #ff0;  
+  }
+  5% {
+    transform: translate(-2px, 2px);
+    text-shadow: 
+      -1px 1px 0 #f0f,  
+      1px 1px 0 #0ff,  
+      -1px -1px 0 #0ff,  
+      1px -1px 0 #f0f;  
+  }
+  10% {
+    transform: translate(2px, -2px);
+    text-shadow: 
+      -3px -3px 0 #000,  
+      3px 3px 0 #fff;  
+  }
+  15% {
+    transform: translate(-2px, 2px);
+    text-shadow: 
+      -4px -4px 0 #ff0,  
+      4px 4px 0 #0ff;  
+  }
+  20% {
+    transform: translate(2px, -2px);
+    text-shadow: 
+      -2px -2px 0 #f00,  
+      2px -2px 0 #0f0,  
+      -2px 2px 0 #00f,  
+      2px 2px 0 #ff0;  
+  }
+  25% {
+    transform: skewX(-15deg);
+    text-shadow: 
+      -1px 1px 0 #fff,  
+      1px 1px 0 #fff;  
+  }
+  30% {
+    transform: skewY(10deg);
+    text-shadow: 
+      -2px -2px 0 #000,  
+      2px 2px 0 #000;  
+  }
+  35% {
+    transform: scale(1.1);
+    text-shadow: 
+      -1px 1px 0 #f0f,  
+      1px 1px 0 #0ff,  
+      -1px -1px 0 #0ff,  
+      1px -1px 0 #f0f;  
+  }
+  40% {
+    transform: rotate(5deg);
+    text-shadow: 
+      -3px -3px 0 #000,  
+      3px 3px 0 #fff;  
+  }
+  100% {
+    transform: translate(0, 0);
+    text-shadow: 
+      -2px -2px 0 #f00,  
+      2px -2px 0 #0f0,  
+      -2px 2px 0 #00f,  
+      2px 2px 0 #ff0;  
+  }
+}
+
+.oferta-telefonia .month{
+  color:white;
+  text-align: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 200%;
+  line-height: 0.01;
+}
+
+.oferta-telefonia .info-tel-plan{
+  color:white;
+  text-align: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 150%;
+  line-height: 0.01;
+}
+
+.contenedor-req{
+  width: 450px;
+  height: 450px;
+  position: relative;
+  bottom: 45%;
+  left: 57%;
+  text-align: center;
+}
+
+.contenedor-req .info-tex{
+  width:450px;
+  height: 130px;
+  font-size: 250%;
+  text-align: center;
+  font-family: "Aldrich", sans-serif;
+  color: white;
+}
+
+.button-requisitos {
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+  transition: filter 250ms;
+}
+
+
+.button-requisitos a{
+  text-decoration: none;
+}
+
+.shadow {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: hsl(0deg 0% 0% / 0.25); /* Sombra negra transparente */
+  will-change: transform;
+  transform: translateY(2px);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+
+.edge {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: linear-gradient(
+    to left,
+    hsl(20, 100%, 30%) 0%, /* Naranja más oscuro */
+    hsl(20, 100%, 40%) 8%,
+    hsl(20, 100%, 40%) 92%,
+    hsl(20, 100%, 30%) 100% /* Naranja más oscuro */
+  );
+}
+
+.front {
+  display: block;
+  position: relative;
+  padding: 12px 42px;
+  border-radius: 12px;
+  font-size: 1.25rem;
+  color: white;
+  background: hsl(20, 100%, 66%); /* Naranja medio */
+  will-change: transform;
+  transform: translateY(-4px);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+
+.button-requisitos:hover {
+  filter: brightness(110%);
+}
+
+.button-requisitos:hover .front {
+  transform: translateY(-6px);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+.button-requisitos:active .front {
+  transform: translateY(-2px);
+  transition: transform 34ms;
+}
+
+.button-requisitos:hover .shadow {
+  transform: translateY(4px);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+.button-requisitos:active .shadow {
+  transform: translateY(0px);
+  transition: transform 34ms;
+}
+
+.button-requisitos:focus:not(:focus-visible) {
+  outline: none;
+}
+
+
+#mi-animacion{
+  width: 300px;
+  height: auto;
+}
+
+.internet-mobile-carousel{
+  display: none;
+}
+
+.payment-grid {
+  display: none;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.payment-grid div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.payment-grid .text {
+  text-align: left;
+}
+
+.payment-grid .image img {
+  width: 40px;
+  height: 40px;
+}
+
+.subtitulo-movil{
+  display: none;
+}
+
+.horario-movil{
+  display: none;
+}
+
+
+@media (max-width: 600px){
+  ñ{
+    border: 1px solid red;
+  }
+  
+  body{
+    overflow-x: hidden;
+  }
+
+  .contenedor-hogar{
+    position: relative;
+    bottom: 90px;
+    justify-items: center;
+    height: auto;
+  }
+  
+  .contenedor-letras-hogar{
+    font-size: 80%;
+    padding-left: 0;
+    width: 80%;
+    height: auto;
+  }
+
+  .contenedor-paquetes-hogar{
+    display: none;
+  }
+  .internet-mobile-carousel {
+    display: block;
+    position: static;
+    margin-top: 40%;
+    margin-bottom: 15%;
+    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.64);
+  }
+  
+  .internet-mobile-carousel-inner {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+  }
+  
+  .internet-mobile-carousel-open:checked + .internet-mobile-carousel-item {
+    position: static;
+    opacity: 1;
+  }
+  
+  .internet-mobile-carousel-item {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.6s ease-out;
+  }
+  
+  .internet-mobile-carousel-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  .internet-mobile-carousel-control {
+    background: rgba(0, 0, 0, 0.28);
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+    font-size: 40px;
+    height: 40px;
+    line-height: 35px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    text-align: center;
+    width: 40px;
+    z-index: 10;
+  }
+  
+  .internet-mobile-carousel-control.prev {
+    left: 2%;
+  }
+  
+  .internet-mobile-carousel-control.next {
+    right: 2%;
+  }
+  
+  .internet-mobile-carousel-control:hover {
+    background: rgba(0, 0, 0, 0.8);
+    color: #aaaaaa;
+  }
+  
+  #internet-mobile-carousel-1:checked ~ .internet-mobile-control-1,
+  #internet-mobile-carousel-2:checked ~ .internet-mobile-control-2,
+  #internet-mobile-carousel-3:checked ~ .internet-mobile-control-3,
+  #internet-mobile-carousel-4:checked ~ .internet-mobile-control-4,
+  #internet-mobile-carousel-5:checked ~ .internet-mobile-control-5 {
+    display: block;
+  }
+  
+  .internet-mobile-carousel-indicators {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    bottom: 2%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 10;
+  }
+  
+  .internet-mobile-carousel-indicators li {
+    display: inline-block;
+    margin: 0 5px;
+  }
+  
+  .internet-mobile-carousel-bullet {
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-size: 35px;
+  }
+  
+  .card-container{
+    display: none;
+  }
+
+  .contenedor-pagos{
+    display: none;
+  }
+
+  .contenedor-img-res{
+    display: none;
+  }
+
+  .subtitulo-movil{
+    position: relative;
+    bottom: 80px;
+    display: block;
+    text-align: center;
+    color:white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  
+  .payment-grid {
+    position: relative;
+    bottom: 80px;
+    align-items: center;
+    border-radius: 0;
+    margin: 0;
+    border: 0;
+    display: grid;
+    grid-template-columns: 2, 1fr;
+    gap: 15px;
+    background: rgb(238, 163, 25);
+  }
+  .payment-grid .text{
+    color: #6A348B;
+    font-weight: 700;
+    font-size: 120%;
+    text-align: center;
+    display: block;
+  }
+
+  .payment-grid .text p{
+    color: white;
+    font-size: 70%;
+  }
+
+  .payment-grid .image img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .horario-movil{
+    position: relative;
+    bottom: 50px;
+    display: block;
+    width: 100%;
+    height: auto;
+    text-align: center;
+  }
+
+  .horario-movil img{
+    width: 50%;
+    height: auto;
+  }
+
+  .horario-movil h1{
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+
+  .horario-movil h2{
+    color: white;
+    font-weight: 700;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+  }
+
+  .horario-movil h3{
+    color: white;
+    font-size: 100%;
+  }
+
+  .contenedor-fechas{
+    position: relative;
+    bottom: 15px;
+    display: block;
+  }
+
+  .oferta-telefonia{
+  width: 100%;
+  height: 350px;
+  position: relative;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 0;
+  }
+
+  .oferta-telefonia .info-tel{
+    width: 100%;
+    height: auto;
+  }
+  
+  .oferta-telefonia .info-tel h1{
+    background-color: purple;
+    height: 50px;
+    font-size: 150%;
+    color:white;
+    padding-top: 8%;
+    font-family: "Aldrich", sans-serif;
+    text-align: center;
+    border-radius: 0;
+  }
+  
+  .oferta-telefonia .info-tel-p{
+    color:white;
+    text-align: center;
+    font-size: 80%;
+    padding-left: 5%;
+    padding-right: 5%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    line-height: 1;
+  }
+  
+  .oferta-telefonia h2 {
+    line-height: 0.1;
+    font-size: 5rem;
+    color: white;
+    text-align: center;
+  }
+
+  .oferta-telefonia .month{
+    color:white;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 100%;
+    line-height: 1;
+  }
+  
+  .oferta-telefonia .info-tel-plan{
+    color:white;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 100%;
+    line-height: 0.01;
+  }
+
+  .contenedor-req{
+    width: 100%;
+    height: auto;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+  }
+  
+  .contenedor-req .info-tex{
+    width:100%;
+    height: auto;
+    font-size: 150%;
+    text-align: center;
+    font-family: "Aldrich", sans-serif;
+    color: white;
+  }
+}
+
+@media (min-width: 1920px) and (max-width: 3840px){
+ 
+  .oferta-telefonia{
+    position: relative;
+  }
+
+  .contenedor-req{
+    position: relative;
+    height: auto;
+    margin-bottom: 50px;
+  }
+
+  footer{
+    margin-top: 15%;
+  }
+}

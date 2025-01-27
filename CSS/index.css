@@ -1,0 +1,733 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+body {
+  height: 100vh; /* Sets the height to 100% of the viewport height */
+  margin: 0; /* Removes default margins */
+  overflow-x: hidden;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background: linear-gradient(to right, #0f0c29, #302b63, #2C5364, #A83279);
+  background-size: 300% 300%;
+  animation: color 15s ease-in-out infinite;
+}
+
+@keyframes color{
+  0%{
+    background-position: 100 50%;
+  }
+
+  50%{
+    background-position: 100% 50%;
+  }
+
+  100%{
+    background-position: 100 50%;
+  }
+}
+
+
+
+
+/*LOGO FAST-NET_OPCIONES_REDES SOCIALES*/
+.seccion_header{
+  width: 100%;
+  height: 20%;
+}
+header{
+  width: 100%;
+  height: auto;
+  position:absolute;
+  top: 0;
+}
+
+.menu-toggle{
+  display: none;
+}
+/* Estilos generales para el menú */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.logo {
+  position: relative;
+  width: 350px;
+  left: 70px;
+}
+
+.logo img {
+  width: 100%;
+}
+
+/* Estilos generales para el menú */
+.menu {
+  background-color: rgba(255, 255, 255, 0.2); /* Fondo blanco translúcido */
+  border-radius: 50px;
+  display: flex;
+  position: relative;
+  right: 30px;
+}
+
+.menu li {
+  list-style: none;
+  margin: 30px;
+}
+
+/* Estilos para los enlaces generales dentro del menú */
+.menu li a {
+  justify-content: center;
+  width: 100px; /* Width por defecto para los enlaces */
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 100%;
+  text-decoration: none;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  transition: all 0.5s ease;
+}
+
+/* Estilo específico para los enlaces con la clase .scroll */
+.menu li a.scroll {
+  width: 400px; /* Asigna un width distinto a los enlaces con la clase .scroll */
+  color: white; /* Mantén el color blanco */
+}
+
+/* Efecto hover para los enlaces generales */
+.menu li a:hover {
+  transform: scale(1.1);
+  border-radius: 10px;
+}
+
+/* Estilos para las imágenes dentro de los enlaces */
+.menu li a img {
+  width: 20%; /* Controla el tamaño de las imágenes dentro de los enlaces */
+  margin-right: 10px;
+}
+
+.texto_typing {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  width: 250px;
+  height: auto;
+  white-space: normal;
+  word-wrap: break-word;
+  font-size: 20px;
+  text-align: center;
+  left: 770px;
+  color: white;
+  position: absolute;
+  top: 100px;
+  overflow: hidden;
+  white-space: nowrap;
+  letter-spacing: 8px;
+  word-wrap: break-all;
+  animation: typing 10s steps(40) 1s forwards, mouse 0.65s step-end infinite, resetTyping 7s infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 38%;
+  }
+}
+
+
+
+@keyframes resetTyping {
+  0%{
+    width: 0;
+  }
+  100% {
+    width: 38%;
+  }
+}
+
+
+
+.wrapper {
+  display: flex;
+  width: 38%;
+  list-style: none;
+  position: relative;
+  top: 200px;
+  left: 75%;
+  z-index: 9999;
+}
+
+
+.wrapper .icon {
+  position: relative;
+  background: #ffffff;
+  border-radius: 50%;
+  padding: 15px;
+  margin: 10px;
+  width: 15px;
+  height: 15px;
+  font-size: 20px;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  flex-direction: column;
+
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+
+.wrapper .icon a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: auto;
+    position: relative;
+    top:-8px;
+}
+
+
+.wrapper .icon img {
+    position: relative;
+    top: 8px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+
+.wrapper .tooltip {
+  position: absolute;
+  top: 0;
+  font-size: 70%;
+  background: #ffffff;
+  color: #ffffff;
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+}
+
+
+.wrapper .tooltip::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background: #ffffff;
+  bottom: -3px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+
+.wrapper .icon:hover .tooltip {
+  top: -35px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  
+}
+
+.wrapper .icon:hover span,
+.wrapper .icon:hover .tooltip {
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .facebook:hover,
+.wrapper .facebook:hover .tooltip,
+.wrapper .facebook:hover .tooltip::before {
+  background: #1877F2;
+  color: #ffffff;
+}
+
+.wrapper .instagram:hover,
+.wrapper .instagram:hover .tooltip,
+.wrapper .instagram:hover .tooltip::before {
+  background: #E4405F;
+  color: #ffffff;
+}
+
+.wrapper .linkedin:hover,
+.wrapper .linkedin:hover .tooltip,
+.wrapper .linkedin:hover .tooltip::before {
+  background: #1DA1F2;
+  color: #ffffff;
+}
+
+.wrapper .correo:hover,
+.wrapper .correo:hover .tooltip,
+.wrapper .correo:hover .tooltip::before {
+  background: #CD201F;
+  color: #ffffff;
+}
+
+.wrapper .telefono:hover,
+.wrapper .telefono:hover .tooltip,
+.wrapper .telefono:hover .tooltip::before {
+  background:rgb(106, 52, 139);
+  color: #ffffff;
+}
+
+.seccion_boton{
+  position: fixed;
+  bottom: 17%;
+  right: 4%;
+  width: 5%;
+  height: auto;
+  z-index: 9999;
+}
+
+.seccion_boton .container_boton_flotante .help {
+  color:white;
+  font-size: 130%;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  position: absolute;
+  width:80px;
+  text-align: center;
+  top: 60px;
+
+}
+
+
+.container_boton_flotante, .button, .nav_boton{
+  position: absolute;
+}
+.container_boton_flotante{
+  margin: auto;
+  top: 10%;
+  left: 50%;
+  margin-left: -20px;
+}
+#toggle{
+  display: none;
+}
+.button{
+  animation: latir 1.5s infinite ease-in-out;
+  z-index: 999;
+  width: 80px;
+  height: 80px;
+  background-image: url(../RECURSOS/bot.png);
+  background-size: cover;
+  cursor: pointer;
+}
+
+@keyframes latir {
+  0% {
+    transform: scale(1); /* Tamaño normal */
+  }
+  50% {
+    transform: scale(.8); /* Aumenta el tamaño al 120% */
+  }
+  100% {
+    transform: scale(1); /* Vuelve al tamaño normal */
+  }
+}
+
+.nav_boton{  transform: translateY(-10%);
+  opacity: 0;
+  top: -100px;
+  right: 20px;
+  transition: all 0.5s ease-in-out;
+  width: 350px;
+  border-radius: 5px;
+  transform: translateY(0%);
+  pointer-events: none;
+}
+.nav_boton a{
+  background-color: orangered;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: bold;
+  border-radius: 50px;
+  height: 40px;
+  padding-top: 20px;
+  text-align:end;
+  padding-right: 30px;
+  display: block;
+  margin: 20px 0;
+  color: white;
+  font-size: 110%;
+  text-decoration: none;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 300ms;
+}
+
+.nav_boton a img{
+  position: absolute;
+  left:15px;
+  width: 15%;
+  margin-top: -17px;
+}
+.nav_boton a:hover{
+  color: #5f5f5f;
+}
+#toggle:checked ~ .nav_boton{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+footer {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tabla {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 20px;
+  width: 80%; /* Ajustar el ancho según sea necesario */
+}
+
+/* Estilos para los encabezados */
+.columna.titulo {
+  font-weight: bold;
+  font-size: 125%;
+  color: white;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Estilos para las celdas de la tabla */
+.columna {
+  text-align: center;
+  padding: 10px;
+  font-size: 110%;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color:white;
+  transition: transform 0.3s ease-in-out;
+}
+
+.tabla a{
+  text-decoration: none;
+}
+
+.columna:hover {
+  transform: scale(1.1); /* Aumenta el tamaño de la celda al 120% */
+  z-index: 1; /* Asegura que la celda se superponga sobre otras si es necesario */
+}
+
+
+.letras_footer p{
+  text-align: center;
+  padding-top: 8%;
+  color: white;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 110%;
+}
+
+footer .img_profeco {
+  width: 20%;
+  height: auto;
+  position: relative;
+  top: -200px;
+  right: 26%;
+}
+
+footer .img_profeco img{
+  width: 60%;
+  height: auto;
+}
+
+footer .img_logo_blanco{
+  width: 20%;
+  right: 25%;
+  top: -300px;
+  height: auto;
+  position: relative;
+}
+
+footer .img_logo_blanco img{
+  width: 50%;
+  height: auto;
+}
+
+
+#mi-animacion{
+  width: 300px;
+  height: auto;
+}
+
+
+
+
+
+@media (max-width: 600px) { 
+  html, body{
+   
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    overflow-x:hidden; /* Reafirma que no debe haber desplazamiento horizontal */
+  }
+  
+
+header{
+  width: 100%; 
+  padding: 0;
+}
+.seccion_header{
+  width: 100%;
+}
+.menu {
+    display: none; /* Oculta el menú en dispositivos pequeños */
+    flex-direction: column; /* Los elementos del menú estarán en columna */
+    position: absolute;
+    top: 60px; /* Ajusta según tu diseño */
+    right: 0;
+    background-color: #6A348B;
+    width: 100%;
+    padding: 1rem 0;
+    border-radius: 0;
+    z-index: 99999;
+    align-items: center;
+
+  }
+
+  .menu.active {
+    display: flex; /* Muestra el menú cuando tiene la clase 'active' */
+  }
+
+  .menu li {
+    margin: 10px 0; /* Espaciado entre los elementos del menú */
+    text-align: center;
+  }
+
+  .menu li a {
+    font-size: 1.2rem;
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .menu li a:hover {
+    color: #f39c12; /* Cambia el color al pasar el mouse */
+  }
+
+  .menu-toggle {
+    display: block; /* Muestra el botón de hamburguesa */
+    position: absolute;
+    margin-left: 5%;
+    margin-bottom: 6%;
+    font-size: 180%;
+    color: white;
+    width: 30px; /* Ancho del botón */
+    height: 30px; /* Altura del botón */
+    background: none; /* Sin color de fondo */
+    border: none; /* Sin bordes */
+    cursor: pointer;
+}
+
+.menu-toggle:focus, 
+.menu-toggle:active {
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-tap-highlight-color: transparent; /* Para Safari */
+}
+
+.nav{
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  align-items: center;
+  overflow-x:hidden; /
+  
+}
+  .logo {
+    width:100%;
+    height: auto;
+    left: 0;   
+    text-align: center;
+  }
+  
+  .logo img{
+    width: 200px;
+    height: auto;
+    margin-left: 10%;
+  }
+
+  
+  .wrapper {
+    display: flex;
+    flex-direction:row; /* Stack icons vertically */
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* Make it full-width */
+    top: 50px; /* Remove absolute positioning */
+    left: auto; /* Remove offset */
+    position: relative;
+    z-index: 9999;
+    padding: 20px 0;
+  }
+
+  .wrapper .icon {
+    margin: 10px 0; /* Add vertical margin between icons */
+    padding: 12px;
+    width: 40px;
+    height: 40px; /* Increase icon size for easier clicking */
+    background:none;
+  }
+
+  .wrapper .icon a {
+    width: 50px; /* Increase clickable area for icons */
+    height: 50px;
+  }
+
+  .wrapper .icon img {
+    width: 70%; /* Adjust image size inside the icon */
+    height: auto;
+  }
+  .wrapper .tooltip::before {
+    position: absolute;
+    content: "";
+    height: 8px;
+    width: 8px;
+    background: #ffffff;
+    bottom: -3px;
+    left: 50%;
+    transform: translate(-50%) rotate(45deg);
+    transition: none; /* Remove animation */
+  }
+
+  /* Tooltip hover effects */
+  .wrapper .icon:hover .tooltip {
+    top: -35px;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .wrapper .icon:hover span,
+  .wrapper .icon:hover .tooltip {
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Remove hover color and animation effects for the social media icons and tooltip */
+  .wrapper .facebook:hover,
+  .wrapper .instagram:hover,
+  .wrapper .linkedin:hover,
+  .wrapper .correo:hover,
+  .wrapper .telefono:hover {
+    background: none; /* Remove background color change */
+    color: inherit; /* Keep the original text color */
+  }
+
+  .wrapper .facebook:hover .tooltip,
+  .wrapper .instagram:hover .tooltip,
+  .wrapper .linkedin:hover .tooltip,
+  .wrapper .correo:hover .tooltip,
+  .wrapper .telefono:hover .tooltip {
+    background: none; /* Remove background color change */
+  }
+
+  .wrapper .facebook:hover .tooltip::before,
+  .wrapper .instagram:hover .tooltip::before,
+  .wrapper .linkedin:hover .tooltip::before,
+  .wrapper .correo:hover .tooltip::before,
+  .wrapper .telefono:hover .tooltip::before {
+    background: none; /* Remove the background color change */
+  }
+
+  .seccion_boton{
+    display: none;
+  }
+
+  .contenedor{
+    display: none;
+  }
+
+
+
+   /* Footer */
+  footer {
+    padding: 20px;
+    font-size: 14px; /* Ajustar el tamaño de la fuente */
+    width: 100%; /* Asegura que el footer no sobresalga */
+    box-sizing: border-box; /* Incluye padding en el ancho total */
+  }
+
+  /* Otras modificaciones del layout en pantallas pequeñas */
+  .tabla {
+    display: grid;
+    grid-template-columns: 1fr; /* Una sola columna para pantallas pequeñas */
+    gap: 10px;
+  }
+
+  .columna {
+    display: block;
+    text-align: center;
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .columna.titulo {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .columna a {
+    text-decoration: none;
+    color: #000;
+    display: block;
+    padding: 8px 0;
+  }
+
+  .letras_footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 12px;
+    width: 100%;
+    box-sizing: border-box; /* Incluye el padding en el ancho */
+  }
+
+  footer .img_profeco{
+    position: absolute;
+    top:86%;
+    width: 200px;
+    height: auto;
+  }
+
+  footer .img_logo_blanco{
+    position:absolute;
+    top: 81.7%;
+    left: 10%;
+    width: 200px;
+    height: auto;
+  }
+
+
+  .img_profeco img{
+    width: 100%; /* Ajusta el ancho a un 80% del contenedor (puedes ajustar este porcentaje) */
+    height: auto; /* Mantiene la proporción */
+    position: relative;
+    left: 50%;
+    top: 85px;
+  }
+
+  .img_logo_blanco img{
+    width: 100%; /* Ajusta el ancho a un 80% del contenedor */
+    height: auto; /* Mantiene la proporción */
+    position: relative;
+    left: 0;
+    top: 140px;
+    margin-top: 10px; /* Espaciado entre las imágenes */
+  }
+
+  
+}

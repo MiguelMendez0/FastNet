@@ -1,0 +1,324 @@
+@import url('https://fonts.googleapis.com/css2?family=Aldrich&display=swap');
+
+.contenido-etica-comercio{
+    width: 80%;
+    height: 1100px;
+    margin: 0 auto;
+    position: relative;
+    top: 10%;
+}
+
+.contenido-etica-comercio h1{
+    color: white;
+    font-family: "Aldrich", sans-serif;
+    text-align: center;
+    width: 80%;
+    position: relative;
+    bottom: 0.3%;
+    right: 10%;
+}
+
+.contenido-etica-comercio h2{
+    color: rgb(231, 92, 12);
+    font-family: "Aldrich", sans-serif;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 170%;
+}
+
+.contenido-etica-comercio h3{
+    color: rgb(210, 27, 216);
+    font-family: "Aldrich", sans-serif;
+    font-size: 150%;
+    text-transform: capitalize;
+}
+
+.contenido-etica-comercio p{
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 120%;
+    line-height: 1.1;
+    text-align: justify;
+}
+
+.contenido-etica-comercio ul{
+    color: white;
+    border-radius: 10px;
+}
+
+.contenido-etica-comercio ul li{
+    color: white;
+    font-size: 120%;
+    line-height: 1.1;
+    margin-bottom: 1px;
+    text-align: justify;
+    padding: 10px;
+    font-style: italic;
+}
+
+.contenido-etica-comercio ul li strong{
+    color: rgb(255, 255, 255);
+    font-size: 100%;
+    line-height: 1.1;
+    margin-bottom: 5px;
+    text-align: justify;
+    text-transform: uppercase;
+    font-style: normal;
+    padding: 10px;
+}
+
+.tabla-grid {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr); /* 9 columnas, cada una con el mismo ancho */
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color:rgb(106, 52, 139);
+    box-shadow: -10px -10px 10px 0px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.tabla-grid div {
+    padding: 8px;
+    text-align: center;
+}
+
+.tabla-grid .titulo {
+    font-weight: bold;
+    background-color: rgb(231, 92, 12);
+    color: white;
+    font-family: "Aldrich", sans-serif;
+    font-size: 100%;
+}
+
+.tabla-grid .valor {
+    color: white;
+    font-size: 100%;
+    font-family:sans-serif;
+}
+
+.tabla-grid .fila {
+    display: contents; /* Hace que los elementos dentro de .fila se dispongan horizontalmente */
+}
+
+.tabla-grid .fila:nth-child(odd) .valor {
+    background-color: #f9f9f9; /* Opcional, para diferenciar filas */
+}
+
+/* Estilo para la tabla */
+.tabla-info {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);  /* 4 columnas de igual tamaño */
+    max-width: 900px;  /* Ancho máximo de la tabla */
+    margin: 30px auto;  /* Centra la tabla en la página con margen */
+    padding: 20px;  /* Espacio interno */
+    box-shadow: -10px -10px 10px 0px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;  /* Bordes redondeados */
+    background-color:rgb(106, 52, 139);
+}
+
+/* Estilo para los encabezados de la tabla */
+.tabla-info .encabezado {
+    font-weight: bold;
+    font-size: 100%;
+    font-family: "Aldrich", sans-serif;
+    text-align: center;
+    background-color: rgb(231, 92, 12);
+    color: white;  /* Color de texto blanco */
+    padding: 10px;  /* Espacio dentro de cada celda */
+}
+
+/* Estilo para los datos de la tabla */
+.tabla-info .dato {
+    text-align: center;
+    color: white;
+    font-size: 100%;
+    padding: 10px;  /* Espacio dentro de cada celda */
+    font-family:sans-serif;
+}
+
+/* Estilo para la fila de datos */
+.tabla-info .datos {
+    display: contents;  /* Los elementos hijos se alinearán según las columnas de la tabla */
+}
+
+/* Estilo para la tabla */
+.tabla-contenedor {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);  /* 2 columnas de igual tamaño */
+    max-width: 600px;  /* Ancho máximo de la tabla */
+    margin: 30px auto;  /* Centra la tabla en la página con margen */
+    padding: 20px;  /* Espacio interno */
+    box-shadow: -10px -10px 10px 0px rgba(0, 0, 0, 0.3);  /* Sombra de la tabla */
+    border-radius: 8px;  /* Bordes redondeados */
+    background-color: rgb(106, 52, 139);  /* Fondo púrpura */
+}
+
+/* Estilo para los encabezados de la tabla (arriba) */
+.tabla-contenedor .tabla-campo {
+    font-weight: bold;
+    font-size: 100%;
+    font-family: "Aldrich", sans-serif;
+    text-align: center;
+    background-color: rgb(231, 92, 12);  /* Fondo naranja */
+    color: white;  /* Color de texto blanco */
+    padding: 10px;  /* Espacio dentro de cada celda */
+}
+
+/* Estilo para los datos de la tabla (debajo) */
+.tabla-contenedor .tabla-dato {
+    text-align: center;
+    color: white;
+    font-size: 130%;
+    padding: 10px;  /* Espacio dentro de cada celda */
+    font-family: sans-serif;
+}
+
+/* Estilo para la tabla */
+.tabla-contenido {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);  /* 2 columnas de igual tamaño */
+    max-width: 600px;  /* Ancho máximo de la tabla */
+    margin: 30px auto;  /* Centra la tabla en la página con margen */
+    padding: 20px;  /* Espacio interno */
+    box-shadow: -10px -10px 10px 0px rgba(0, 0, 0, 0.3);  /* Sombra de la tabla */
+    border-radius: 8px;  /* Bordes redondeados */
+    background-color: rgb(106, 52, 139);  /* Fondo púrpura */
+}
+
+/* Estilo para los encabezados de la tabla (arriba) */
+.tabla-contenido .campo-titulo {
+    font-weight: bold;
+    font-size: 100%;
+    font-family: "Aldrich", sans-serif;
+    text-align: center;
+    background-color: rgb(231, 92, 12);  /* Fondo naranja */
+    color: white;  /* Color de texto blanco */
+    padding: 10px;  /* Espacio dentro de cada celda */
+}
+
+/* Estilo para los datos de la tabla (debajo) */
+.tabla-contenido .dato-valor {
+    text-align: center;
+    color: white;
+    font-size: 100%;
+    padding: 10px;  /* Espacio dentro de cada celda */
+    font-family: sans-serif;
+}
+
+/* Estilo para la lista */
+.tabla-lista {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);  /* 2 columnas de igual tamaño */
+    max-width: 600px;  /* Ancho máximo de la tabla */
+    margin: 30px auto;  /* Centra la tabla en la página con margen */
+    padding: 20px;  /* Espacio interno */
+    box-shadow: -10px -10px 10px 0px rgba(0, 0, 0, 0.3);  /* Sombra de la tabla */
+    border-radius: 8px;  /* Bordes redondeados */
+    background-color: rgb(106, 52, 139);  /* Fondo púrpura */
+    list-style-type: none;  /* Eliminar los puntos por defecto de la lista */
+    grid-template-rows: auto; /* Ajusta el contenido a una fila */
+    grid-auto-flow: column; /* Cambiar la disposición para que sea en una fila horizontal */
+}
+
+/* Estilo para la lista */
+.tabla-lista {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);  /* 2 columnas de igual tamaño */
+    grid-template-rows: auto auto;  /* 2 filas (una para los títulos y otra para los valores) */
+    max-width: 600px;  /* Ancho máximo de la tabla */
+    margin: 30px auto;  /* Centra la tabla en la página con margen */
+    padding: 20px;  /* Espacio interno */
+    box-shadow: -10px -10px 10px 0px rgba(0, 0, 0, 0.3);  /* Sombra de la tabla */
+    border-radius: 8px;  /* Bordes redondeados */
+    background-color: rgb(106, 52, 139);  /* Fondo púrpura */
+    list-style-type: none;  /* Eliminar los puntos por defecto de la lista */
+}
+
+/* Estilo para los encabezados de la lista (arriba) */
+.tabla-lista .item-titulo {
+    font-weight: bold;
+    font-size: 100%;
+    font-family: "Aldrich", sans-serif;
+    text-align: center;
+    background-color: rgb(231, 92, 12);  /* Fondo naranja */
+    color: white;  /* Color de texto blanco */
+    padding: 10px;  /* Espacio dentro de cada celda */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo para los valores de la lista (debajo) */
+.tabla-lista .item-valor {
+    text-align: center;
+    color: white;
+    font-size: 100%;
+    padding: 10px;  /* Espacio dentro de cada celda */
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo para el apartado */
+.info-terminos {
+    text-align: center;  /* Centra el texto */
+    margin: 30px 0;  /* Añade márgenes */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.2);  /* Fondo gris claro */
+    border-radius: 8px;  /* Bordes redondeados */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);  /* Sombra sutil */
+}
+
+/* Estilo para el texto */
+.info-terminos p {
+    font-size: 130%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin-bottom: 20px;
+    color: white;
+}
+
+/* Estilo para el botón */
+.btn-descarga {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color:rgb(231, 92, 12);  /* Color de fondo del botón */
+    color: white;  /* Color de texto */
+    text-decoration: none;  /* Elimina el subrayado */
+    border-radius: 5px;  /* Bordes redondeados */
+    transition: background-color 0.3s ease;
+}
+
+/* Efecto al pasar el ratón por encima del botón */
+.btn-descarga:hover {
+    background-color: rgb(106, 52, 139);  /* Cambia el color al pasar el ratón */
+}
+
+@media (max-width: 600px){
+    .contenido-etica-comercio{
+        position: relative;
+        margin-top: 15%;
+        width: 100%;
+        height: auto;
+    }
+
+    .contenido-etica-comercio h2{
+        font-size: 120%;
+        text-align: center;
+    }
+
+    .contenido-etica-comercio p{
+        font-size: 80%;
+        margin-left: 5%;
+        margin-right: 5%;
+        text-align: center;
+    }
+
+    .info-terminos{
+        border-radius: 0;
+    }
+}
