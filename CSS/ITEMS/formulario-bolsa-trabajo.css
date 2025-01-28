@@ -196,6 +196,11 @@ input[type="file"] {
     
 }
 
+iframe{
+    margin-top: 5%;
+    margin-bottom: 4.5%;
+}
+
 @media (max-width: 600px){
     .contenido-bolsa{
         width: 100%;
