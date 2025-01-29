@@ -189,22 +189,90 @@ input[required] {
 
 @media (max-width: 600px){
 
-    ñ{
-        border:1px solid red;
-    }
-
-    .menu-toggle {
-        display: block; /* Muestra el botón de hamburguesa */
-        position: relative;
-        font-size: 180%;
-        top: -6px;
-        right: 80%;
-        color: white;
-        width: 30px; /* Ancho del botón */
-        height: 30px; /* Altura del botón */
-        background: none; /* Sin color de fondo */
-        border: none; /* Sin bordes */
-        cursor: pointer;
+    header{
+        width: 100%; 
+        padding: 0;
+      }
+      .seccion_header{
+        width: 100%;
+      }
+      .menu {
+          display: none; /* Oculta el menú en dispositivos pequeños */
+          flex-direction: column; /* Los elementos del menú estarán en columna */
+          position: absolute;
+          top: 60px; /* Ajusta según tu diseño */
+          right: 0;
+          background-color: #6A348B;
+          width: 100%;
+          padding: 1rem 0;
+          border-radius: 0;
+          z-index: 999999;
+          align-items: center;
+      
+        }
+      
+        .menu.active {
+          display: flex; /* Muestra el menú cuando tiene la clase 'active' */
+        }
+      
+        .menu li {
+          margin: 10px 0; /* Espaciado entre los elementos del menú */
+          text-align: center;
+        }
+      
+        .menu li a {
+          font-size: 1.2rem;
+          color: white;
+          text-decoration: none;
+          transition: color 0.3s ease;
+        }
+      
+        .menu li a:hover {
+          color: #f39c12; /* Cambia el color al pasar el mouse */
+        }
+      
+        .menu-toggle {
+          display: block; /* Muestra el botón de hamburguesa */
+          position: absolute;
+          margin-left: 2%;
+          margin-bottom: 11%;
+          font-size: 180%;
+          color: white;
+          width: 30px; /* Ancho del botón */
+          height: 30px; /* Altura del botón */
+          background: none; /* Sin color de fondo */
+          border: none; /* Sin bordes */
+          cursor: pointer;
+      }
+      
+      .menu-toggle:focus, 
+      .menu-toggle:active {
+        outline: none !important;
+        box-shadow: none !important;
+        -webkit-tap-highlight-color: transparent; /* Para Safari */
+      }
+      
+      .nav{
+        width: 100%;
+        height: auto;
+        box-sizing: border-box;
+        align-items: center;
+        overflow-x:hidden; /
+        
+      }
+        .logo {
+          width:100%;
+          height: auto;
+          left: 0;   
+          text-align: center;
+        }
+        
+        .logo img{
+          width: 200px;
+          height: auto;
+       
+          margin-left: 10%;
+          cursor: pointer;
     }
     
     .contenido_empresarial{
@@ -333,7 +401,7 @@ input[required] {
     }
     
     button:hover {
-        background: #6A348B;
+        background:none;
     }
     
     /* Estilos para los campos obligatorios */

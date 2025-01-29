@@ -598,10 +598,7 @@
 
 
 @media (max-width: 600px){
-  ñ{
-    border: 1px solid red;
-  }
-  
+
   body{
     overflow-x: hidden;
   }
