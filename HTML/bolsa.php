@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Verificar que el archivo sea un PDF
         if ($fileType == 'application/pdf') {
             // Ruta de destino en el servidor
-            $uploadDir = $_SERVER['DOCUMENT_ROOT'] . '/PAGINA/HTML/uploads/';
+            $uploadDir = $_SERVER['DOCUMENT_ROOT'] . '/FastNet/HTML/uploads/';
 
             $filePath = $uploadDir . basename($fileName);
             
