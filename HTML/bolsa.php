@@ -125,7 +125,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 icon: 'success',
                 confirmButtonText: 'Aceptar'
             }).then(function() {
-                window.location.href = 'index.html';
+                window.location.href = '../index.html';
             });
         });
         </script>";

@@ -96,7 +96,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 icon: 'success',
                 confirmButtonText: 'Aceptar'
             }).then(function() {
-                window.location.href = '../empresarial.html'; // Redirigir a otra página después de la alerta
+                window.location.href = '../index.html'; // Redirigir a otra página después de la alerta
             });
         });
         </script>";
