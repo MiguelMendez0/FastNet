@@ -24,7 +24,7 @@ $paquete = isset($_GET['paquete']) ? $_GET['paquete'] : null;
     
     <div class="content">
         <div class="logo-formulario">
-        <a href="../HTML/index.html">
+        <a href="../index.html">
         <img src="../RECURSOS/logo_blanco.png" alt="Logo Blanco">
         </a>
         </div>
