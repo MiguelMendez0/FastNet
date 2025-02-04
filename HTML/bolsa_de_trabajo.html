@@ -7,6 +7,7 @@
     <link rel="icon" type="image/x-icon" href="../RECURSOS/favicon.ico">
     <link href="../CSS/APARTADOS/extenciones.css" rel="stylesheet">
     <link href="../CSS/ITEMS/formulario-bolsa-trabajo.css" rel="stylesheet"> 
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <title>Bolsa de Trabajo</title>
 </head>
 <body>
@@ -127,8 +128,12 @@
                 <input type="checkbox" id="consentimiento" name="consentimiento" required>
                 <label for="consentimiento">Estoy de acuerdo en que estos datos se almacenen y procesen con el fin de establecer contacto. Soy consciente de que puedo revocar mi consentimiento en cualquier momento.*</label>
             </div>
-
+            
+            <p class="block">
+              <div class="g-recaptcha" data-sitekey="6LffFs0qAAAAAB5mk75c7siX627qNZi37uw9FKma"></div>
+              </p>
             <button type="submit">Enviar</button>
+
         </form>
 
         <iframe 

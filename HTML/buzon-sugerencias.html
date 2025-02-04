@@ -7,6 +7,7 @@
     <link rel="icon" type="image/x-icon" href="../RECURSOS/favicon.ico">
     <link href="../CSS/APARTADOS/extenciones.css" rel="stylesheet">  
     <link href="../CSS/APARTADOS/sugerencia.css" rel="stylesheet"> 
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <title>Búzon de Sugerencias</title>
 </head>
 <body>
@@ -98,8 +99,10 @@
                 <label for="consentimiento">
                     <input type="checkbox" id="consentimiento" name="consentimiento" required> Acepto los términos.
                 </label>
-            </div>
-    
+              </div>
+              <p class="block">
+                <div class="g-recaptcha" data-sitekey="6LcXF80qAAAAALvRJVCJ1QyUJB7ydDJPqYQnAO4V"></div>
+                </p>
             <button type="submit">Enviar</button>
         </form>
     </div>

@@ -2,119 +2,103 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+// Cargar la librería PHPMailer
 require 'vendor/autoload.php';  // Asegúrate de que la ruta sea correcta
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Obtener los datos del formulario
-    $nombre = htmlspecialchars($_POST['nombre']);
-    $telefono = htmlspecialchars($_POST['telefono']);
-    $telefono_url = urlencode(preg_replace('/\D/', '', $telefono));
-    $correo = htmlspecialchars($_POST['correo']);
-    $puesto = htmlspecialchars($_POST['puesto']);
-    $radicas = htmlspecialchars($_POST['radicas']);
-    $grado_estudios = htmlspecialchars($_POST['grado_estudios']);
+    // Verificar reCAPTCHA
+    $recaptchaSecret = '6LffFs0qAAAAAIpAS3g9_eZhI82RQzuGEKjuZ-M7';  // Clave secreta reCAPTCHA
+    $recaptchaResponse = $_POST['g-recaptcha-response'];
 
+    // Verificar si se ha completado el reCAPTCHA
+    $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$recaptchaSecret&response=$recaptchaResponse");
+    $responseKeys = json_decode($response, true);
 
-    // Manejar el archivo PDF subido
-    if (isset($_FILES['cv']) && $_FILES['cv']['error'] === UPLOAD_ERR_OK) {
-        $fileTmpPath = $_FILES['cv']['tmp_name'];
-        $fileName = $_FILES['cv']['name'];
-        $fileSize = $_FILES['cv']['size'];
-        $fileType = $_FILES['cv']['type'];
-
-        // Verificar que el archivo sea un PDF
-        if ($fileType == 'application/pdf') {
-            // Ruta de destino en el servidor
-            $uploadDir = $_SERVER['DOCUMENT_ROOT'] . '/FastNet/HTML/uploads/';
-
-            $filePath = $uploadDir . basename($fileName);
-            
-            // Mover el archivo al servidor
-            if (move_uploaded_file($fileTmpPath, $filePath)) {
-                // Archivo subido correctamente
-                $cvAttachment = $filePath;
-            } else {
-                // Error al mover el archivo
-                echo "<script>alert('Hubo un problema al subir el archivo.');</script>";
-                exit;
-            }
-        } else {
-            // El archivo no es un PDF
-            echo "<script>alert('Solo se permite subir archivos PDF.');</script>";
-            exit;
-        }
-    } else {
-        echo "<script>alert('Por favor, adjunta un archivo PDF.');</script>";
+    if(intval($responseKeys["success"]) !== 1) {
+        // Si la validación de reCAPTCHA falla
+        echo "<script>alert('Por favor, complete el reCAPTCHA');</script>";
         exit;
     }
 
+    // Obtener los valores del formulario
+    $empresa = htmlspecialchars($_POST['empresa']);
+    $contacto = htmlspecialchars($_POST['contacto']);
+    $telefono = htmlspecialchars($_POST['telefono']);
+    $email = htmlspecialchars($_POST['email']);
+    $asunto = htmlspecialchars($_POST['asunto']);
+    $consentimiento = isset($_POST['consentimiento']) ? 'Sí' : 'No';
+
     // Crear una nueva instancia de PHPMailer
     $mail = new PHPMailer(true);
+    $telefono_url = urlencode(preg_replace('/\D/', '', $telefono));  // Limpiar el número de caracteres no numéricos
 
     try {
         // Configuración del servidor SMTP
         $mail->isSMTP();
-        $mail->Host       = 'smtp.ionos.com';
+        $mail->Host       = 'smtp.ionos.com';  // Servidor SMTP de IONOS
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'recursoshumanos@fast-net.com.mx';
-        $mail->Password   = 'H5z73185@-Pws210984';
+        $mail->Username   = 'ventasempresariales@fast-net.com.mx';  // Tu correo de IONOS
+        $mail->Password   = 'F@stnet#5f$4E';  // Tu contraseña de correo
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port       = 587;
+        
         $mail->CharSet = 'UTF-8';
 
         // Remitente y destinatario
-        $mail->setFrom('recursoshumanos@fast-net.com.mx', 'Solicitud De Empleo');
-        $mail->addAddress('recursoshumanos@fast-net.com.mx', 'Recursos Humanos');
+        $mail->setFrom('ventasempresariales@fast-net.com.mx', 'CONTRATACION EMPRESARIAL');  // Nombre estático de remitente
+        $mail->addAddress('ventasempresariales@fast-net.com.mx', 'Contratacion FastNet');  // Correo destino
+
+        // Agregar la imagen incrustada
+        $mail->addEmbeddedImage('../RECURSOS/logo_oficial.png', 'logo_fastnet'); // Ruta del logo local
 
         // Asunto
         $mail->Subject = 'Nueva Solicitud de Contratación';
 
-        $mail->addEmbeddedImage('../RECURSOS/logo_oficial.png', 'logo_fastnet'); // Ruta del logo local
-
         // Cuerpo del mensaje (HTML)
-        $mail->isHTML(true);
+        $mail->isHTML(true);  // Asegurarse de que el correo sea enviado en formato HTML
         $mail->Body = '
-       <div style="text-align: center; margin-bottom: 20px;">
-    <img src="cid:logo_fastnet" alt="Logo FastNet" width="200" />
-    <h2 style="color: #0056b3; margin: 10px 0;">Nueva Solicitud de Contratación</h2>
-</div>
-
+        <div style="text-align: center; margin-bottom: 20px;">
+            <img src="cid:logo_fastnet" alt="Logo de FastNet" style="max-width: 150px;">
+            <h2 style="color: #0056b3; margin: 10px 0;">Nueva Solicitud de Contratación</h2>
+        </div>
         <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
             <tr>
-                <td style="padding: 10px; border: 1px solid #ddd;">Nombre Completo</td>
-                <td style="padding: 10px; border: 1px solid #ddd;">' . $nombre . '</td>
+                <th style="text-align: left; padding: 10px; border: 1px solid #ddd; background-color: #60269E; color: #fff;">INFORMACIÓN DE CONTRATACION</th>
+                <th style="text-align: left; padding: 10px; border: 1px solid #ddd; background-color: #60269E; color: #fff;">DATOS DE CLIENTE</th>
             </tr>
             <tr>
-                <td style="padding: 10px; border: 1px solid #ddd;">Correo Electrónico</td>
-                <td style="padding: 10px; border: 1px solid #ddd;">' . $correo . '</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">Nombre de la Empresa</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">' . $empresa . '</td>
             </tr>
             <tr>
-                <td style="padding: 10px; border: 1px solid #ddd;">Número Telefónico</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">Nombre de Contacto</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">' . $contacto . '</td>
+            </tr>
+            <tr>
+                 <td style="padding: 10px; border: 1px solid #ddd;">Número Telefónico</td>
                 <td style="padding: 10px; border: 1px solid #ddd;">
                     <a href="https://wa.me/' . $telefono_url . '" target="_blank">' . $telefono . '</a>
                 </td>
             </tr>
             <tr>
-                <td style="padding: 10px; border: 1px solid #ddd;">Puesto Solicitado</td>
-                <td style="padding: 10px; border: 1px solid #ddd;">' . $puesto . '</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">Correo Electrónico</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">' . $email . '</td>
             </tr>
             <tr>
-                <td style="padding: 10px; border: 1px solid #ddd;">¿Dónde radicas?</td>
-                <td style="padding: 10px; border: 1px solid #ddd;">' . $radicas . '</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">Asunto</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">' . $asunto . '</td>
             </tr>
             <tr>
-            <td style="padding: 10px; border: 1px solid #ddd;">Grado de Estudios</td>
-            <td style="padding: 10px; border: 1px solid #ddd;">' . $grado_estudios . '</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">Consentimiento</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">' . $consentimiento . '</td>
             </tr>
-        </table>';
-
-        // Adjuntar el archivo PDF
-        $mail->addAttachment($cvAttachment, 'CV_' . basename($fileName));
+        </table>
+        ';
 
         // Enviar el correo
         $mail->send();
 
-        // Mensaje de éxito con SweetAlert
+        // Agregar SweetAlert para éxito
         echo "
         <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
         <script>
@@ -125,12 +109,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 icon: 'success',
                 confirmButtonText: 'Aceptar'
             }).then(function() {
-                window.location.href = '../index.html';
+                window.location.href = '../index.html'; // Redirigir a otra página después de la alerta
             });
         });
         </script>";
+
     } catch (Exception $e) {
-        // Mensaje de error con SweetAlert
+        // Agregar SweetAlert para error
         echo "
         <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
         <script>

@@ -3,70 +3,119 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 // Cargar la librería PHPMailer
-require 'vendor/autoload.php';
+require 'vendor/autoload.php';  // Asegúrate de que la ruta sea correcta
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Validar y sanitizar los datos del formulario
-    $nombre = htmlspecialchars($_POST['nombre'] ?? '');
-    $mensaje = htmlspecialchars($_POST['mensaje'] ?? '');
-    $consentimiento = isset($_POST['consentimiento']) ? 'Aceptado' : 'No aceptado';
+    // Verificar reCAPTCHA
+    $recaptchaSecret = '6LcXF80qAAAAAFDU13P5bNYd7DOUZKfXfJiITWgL';  // Nueva Clave secreta reCAPTCHA
+    $recaptchaResponse = $_POST['g-recaptcha-response'];
+
+    // Verificar si se ha completado el reCAPTCHA
+    $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$recaptchaSecret&response=$recaptchaResponse");
+    $responseKeys = json_decode($response, true);
+
+    if(intval($responseKeys["success"]) !== 1) {
+        // Si la validación de reCAPTCHA falla
+        echo "<script>alert('Por favor, complete el reCAPTCHA');</script>";
+        exit;
+    }
+
+    // Obtener los valores del formulario
+    $empresa = htmlspecialchars($_POST['empresa']);
+    $contacto = htmlspecialchars($_POST['contacto']);
+    $telefono = htmlspecialchars($_POST['telefono']);
+    $email = htmlspecialchars($_POST['email']);
+    $asunto = htmlspecialchars($_POST['asunto']);
+    $consentimiento = isset($_POST['consentimiento']) ? 'Sí' : 'No';
 
     // Crear una nueva instancia de PHPMailer
     $mail = new PHPMailer(true);
+    $telefono_url = urlencode(preg_replace('/\D/', '', $telefono));  // Limpiar el número de caracteres no numéricos
 
     try {
         // Configuración del servidor SMTP
         $mail->isSMTP();
-        $mail->Host       = 'smtp.ionos.com'; // Servidor SMTP
+        $mail->Host       = 'smtp.ionos.com';  // Servidor SMTP de IONOS
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'contrataciones@fast-net.com.mx'; // Correo de IONOS
-        $mail->Password   = 'Dws@210984'; // Contraseña del correo
+        $mail->Username   = 'ventasempresariales@fast-net.com.mx';  // Tu correo de IONOS
+        $mail->Password   = 'F@stnet#5f$4E';  // Tu contraseña de correo
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port       = 587;
-        $mail->CharSet    = 'UTF-8';
+        
+        $mail->CharSet = 'UTF-8';
 
         // Remitente y destinatario
-        $mail->setFrom('contrataciones@fast-net.com.mx', 'FastNet Contrataciones');
-        $mail->addAddress('contrataciones@fast-net.com.mx', 'Soporte FastNet');
+        $mail->setFrom('ventasempresariales@fast-net.com.mx', 'CONTRATACION EMPRESARIAL');  // Nombre estático de remitente
+        $mail->addAddress('ventasempresariales@fast-net.com.mx', 'Contratacion FastNet');  // Correo destino
 
-        // Asunto
-        $mail->Subject = 'QUEJAS Y SUGERENCIAS';
-
+        // Agregar la imagen incrustada
         $mail->addEmbeddedImage('../RECURSOS/logo_oficial.png', 'logo_fastnet'); // Ruta del logo local
 
-        // Cuerpo del correo
-        $mail->isHTML(true);
-        $mail->Body = "
-        <div style='font-family: Arial, sans-serif;'>
-         <img src='../RECURSOS/logo_fastnet.png' alt='logo FastNet' width='200' />       
-            <h2 style='color: #0056b3;'>Nueva Queja o Sugerencia</h2>
-            <p><strong>Nombre:</strong> {$nombre}</p>
-            <p><strong>Mensaje:</strong></p>
-            <p>{$mensaje}</p>
-            <p><strong>Consentimiento:</strong> {$consentimiento}</p>
-        </div>";
-        $mail->AltBody = "Nueva Queja o Sugerencia\n\nNombre: {$nombre}\nMensaje: {$mensaje}\nConsentimiento: {$consentimiento}";
+        // Asunto
+        $mail->Subject = 'Nueva Solicitud de Contratación';
+
+        // Cuerpo del mensaje (HTML)
+        $mail->isHTML(true);  // Asegurarse de que el correo sea enviado en formato HTML
+        $mail->Body = '
+        <div style="text-align: center; margin-bottom: 20px;">
+            <img src="cid:logo_fastnet" alt="Logo de FastNet" style="max-width: 150px;">
+            <h2 style="color: #0056b3; margin: 10px 0;">Nueva Solicitud de Contratación</h2>
+        </div>
+        <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+            <tr>
+                <th style="text-align: left; padding: 10px; border: 1px solid #ddd; background-color: #60269E; color: #fff;">INFORMACIÓN DE CONTRATACION</th>
+                <th style="text-align: left; padding: 10px; border: 1px solid #ddd; background-color: #60269E; color: #fff;">DATOS DE CLIENTE</th>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #ddd;">Nombre de la Empresa</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">' . $empresa . '</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #ddd;">Nombre de Contacto</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">' . $contacto . '</td>
+            </tr>
+            <tr>
+                 <td style="padding: 10px; border: 1px solid #ddd;">Número Telefónico</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">
+                    <a href="https://wa.me/' . $telefono_url . '" target="_blank">' . $telefono . '</a>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #ddd;">Correo Electrónico</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">' . $email . '</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #ddd;">Asunto</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">' . $asunto . '</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #ddd;">Consentimiento</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">' . $consentimiento . '</td>
+            </tr>
+        </table>
+        ';
 
         // Enviar el correo
-        if ($mail->send()) {
-            echo "
-            <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
-            <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                Swal.fire({
-                    title: '¡Formulario Enviado!',
-                    text: 'Gracias por tu mensaje. Lo revisaremos pronto.',
-                    icon: 'success',
-                    confirmButtonText: 'Aceptar'
-                }).then(function() {
-                    window.location.href = 'index.html';
-                });
+        $mail->send();
+
+        // Agregar SweetAlert para éxito
+        echo "
+        <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            Swal.fire({
+                title: '¡Solicitud Enviada!',
+                text: 'Gracias por tu solicitud. Nos pondremos en contacto contigo pronto.',
+                icon: 'success',
+                confirmButtonText: 'Aceptar'
+            }).then(function() {
+                window.location.href = '../index.html'; // Redirigir a otra página después de la alerta
             });
-            </script>";
-        } else {
-            throw new Exception('No se pudo enviar el correo.');
-        }
+        });
+        </script>";
+
     } catch (Exception $e) {
+        // Agregar SweetAlert para error
         echo "
         <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
         <script>
@@ -80,7 +129,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         });
         </script>";
     }
-} else {
-    echo "No se recibieron datos del formulario.";
 }
 ?>
