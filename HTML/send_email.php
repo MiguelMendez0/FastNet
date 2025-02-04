@@ -2,120 +2,100 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-// Cargar la librería PHPMailer
-require 'vendor/autoload.php';  // Asegúrate de que la ruta sea correcta
+require 'vendor/autoload.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Obtener el número del formulario
-    $telefono = htmlspecialchars($_POST['numero']);  // Asegúrate de que 'numero' sea el nombre del campo en el formulario
-    $telefono_url = urlencode(preg_replace('/\D/', '', $telefono));  // Limpiar el número de caracteres no numéricos
+    // Verifica si el usuario resolvió reCAPTCHA
+    $recaptchaSecret = "6LeHBs0qAAAAALnIEzdv9q2E-bhaFg5rLX0b8ytU"; // Cambia por tu clave secreta
+    $recaptchaResponse = $_POST['g-recaptcha-response'];
 
-    // Crear una nueva instancia de PHPMailer
+    if (!$recaptchaResponse) {
+        echo "<script>
+            alert('Por favor, verifica el reCAPTCHA antes de enviar el formulario.');
+            window.history.back();
+        </script>";
+        exit;
+    }
+
+    // Verificación de reCAPTCHA con Google
+    $verifyURL = "https://www.google.com/recaptcha/api/siteverify";
+    $data = [
+        'secret' => $recaptchaSecret,
+        'response' => $recaptchaResponse
+    ];
+
+    $options = [
+        'http' => [
+            'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+            'method'  => 'POST',
+            'content' => http_build_query($data)
+        ]
+    ];
+
+    $context  = stream_context_create($options);
+    $verify = file_get_contents($verifyURL, false, $context);
+    $captchaSuccess = json_decode($verify);
+
+    if (!$captchaSuccess->success) {
+        echo "<script>
+            alert('Verificación de reCAPTCHA fallida. Inténtalo de nuevo.');
+            window.history.back();
+        </script>";
+        exit;
+    }
+
+    // Capturar datos del formulario
+    $telefono = htmlspecialchars($_POST['numero']);
+    $telefono_url = urlencode(preg_replace('/\D/', '', $telefono));
+
+    // Configurar PHPMailer
     $mail = new PHPMailer(true);
-
     try {
-        // Configuración del servidor SMTP
         $mail->isSMTP();
-        $mail->Host       = 'smtp.ionos.com';  // Servidor SMTP de IONOS
+        $mail->Host       = 'smtp.ionos.com';
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'contrataciones@fast-net.com.mx';  // Tu correo de IONOS
-        $mail->Password   = 'Dws@210984';  // Tu contraseña de correo
+        $mail->Username   = 'contrataciones@fast-net.com.mx';
+        $mail->Password   = 'Dws@210984';
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port       = 587;
-        
-        $mail->CharSet = 'UTF-8';
+        $mail->CharSet    = 'UTF-8';
 
-        // Remitente y destinatario
-        $mail->setFrom('contrataciones@fast-net.com.mx', 'CONTRATACION');  // Nombre estático de remitente
-        $mail->addAddress('contrataciones@fast-net.com.mx', 'Contratacion FastNet');  // Correo destino
+        $mail->setFrom('contrataciones@fast-net.com.mx', 'CONTRATACION');
+        $mail->addAddress('contrataciones@fast-net.com.mx', 'Contratacion FastNet');
+        $mail->addEmbeddedImage('../RECURSOS/logo_oficial.png', 'logo_fastnet');
 
-        // Agregar la imagen incrustada
-        $mail->addEmbeddedImage('../RECURSOS/logo_oficial.png', 'logo_fastnet'); // Ruta del logo local
-
-        // Asunto
         $mail->Subject = 'Nueva Solicitud de Contratación';
-
-        // Cuerpo del mensaje (HTML)
-        $mail->isHTML(true);  // Asegurarse de que el correo sea enviado en formato HTML
+        $mail->isHTML(true);
         $mail->Body = '
-        <div style="text-align: center; margin-bottom: 20px;">            <img src="cid:logo_fastnet" alt="Logo de FastNet" style="max-width: 150px;"
->
-            <h2 style="color: #0056b3; margin: 10px 0;">Nueva Solicitud de Contratación</h2>
+        <div style="text-align: center;">
+            <img src="cid:logo_fastnet" alt="Logo de FastNet" style="max-width: 150px;">
+            <h2 style="color: #0056b3;">Nueva Solicitud de Contratación</h2>
         </div>
-        <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse;">
             <tr>
-                <th style="text-align: left; padding: 10px; border: 1px solid #ddd; background-color: #60269E; color: #fff;">INFORMACIÓN DE CONTRATACION</th>
-                <th style="text-align: left; padding: 10px; border: 1px solid #ddd; background-color: #60269E; color: #fff;">DATOS DE CLIENTE</th>
+                <th style="background-color: #60269E; color: white;">INFORMACIÓN</th>
+                <th style="background-color: #60269E; color: white;">DATOS</th>
             </tr>
-            <tr>
-                <td style="padding: 10px; border: 1px solid #ddd;">Nombre Completo</td>
-                <td style="padding: 10px; border: 1px solid #ddd;">' . htmlspecialchars($_POST['fullname']) . '</td>
-            </tr>
-            <tr>
-                <td style="padding: 10px; border: 1px solid #ddd;">Correo Electrónico</td>
-                <td style="padding: 10px; border: 1px solid #ddd;">' . htmlspecialchars($_POST['email']) . '</td>
-            </tr>
-            <tr>
-                <td style="padding: 10px; border: 1px solid #ddd;">Número Telefónico</td>
-                <td style="padding: 10px; border: 1px solid #ddd;">
-                    <a href="https://wa.me/' . $telefono_url . '" target="_blank">' . $telefono . '</a>
-                </td>
-            </tr>
-            <tr>
-                <td style="padding: 10px; border: 1px solid #ddd;">Paquete de Interés</td>
-                <td style="padding: 10px; border: 1px solid #ddd;">' . htmlspecialchars($_POST['paquete']) . '</td>
-            </tr>
-            <tr>
-                <td style="padding: 10px; border: 1px solid #ddd;">Estado</td>
-                <td style="padding: 10px; border: 1px solid #ddd;">' . htmlspecialchars($_POST['estado']) . '</td>
-            </tr>
-            <tr>
-                <td style="padding: 10px; border: 1px solid #ddd;">Municipio</td>
-                <td style="padding: 10px; border: 1px solid #ddd;">' . htmlspecialchars($_POST['municipio']) . '</td>
-            </tr>
-            <tr>
-                <td style="padding: 10px; border: 1px solid #ddd;">Mensaje</td>
-                <td style="padding: 10px; border: 1px solid #ddd;">' . htmlspecialchars($_POST['message']) . '</td>
-            </tr>
-        </table>
-        ';
+            <tr><td>Nombre</td><td>' . htmlspecialchars($_POST['fullname']) . '</td></tr>
+            <tr><td>Correo</td><td>' . htmlspecialchars($_POST['email']) . '</td></tr>
+            <tr><td>Teléfono</td><td><a href="https://wa.me/' . $telefono_url . '">' . $telefono . '</a></td></tr>
+            <tr><td>Paquete</td><td>' . htmlspecialchars($_POST['paquete']) . '</td></tr>
+            <tr><td>Estado</td><td>' . htmlspecialchars($_POST['estado']) . '</td></tr>
+            <tr><td>Municipio</td><td>' . htmlspecialchars($_POST['municipio']) . '</td></tr>
+            <tr><td>Mensaje</td><td>' . htmlspecialchars($_POST['message']) . '</td></tr>
+        </table>';
 
-        // Enviar el correo
         $mail->send();
-
-        // Agregar SweetAlert para éxito
-        echo "
-        <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
-        <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            Swal.fire({
-                title: '¡Solicitud Enviada!',
-                text: 'Gracias por tu solicitud. Nos pondremos en contacto contigo pronto.',
-                icon: 'success',
-                confirmButtonText: 'Aceptar'
-            }).then(function() {
-                window.location.href = '../index.html'; // Redirigir a otra página después de la alerta
-            });
-        });
+        echo "<script>
+            alert('Solicitud enviada correctamente.');
+            window.location.href = '../index.html';
         </script>";
 
     } catch (Exception $e) {
-
-        // Agregar SweetAlert para error
-        echo "
-        <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
-        <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            Swal.fire({
-                title: 'Error al Enviar',
-                text: 'Hubo un problema al enviar el correo. Error: {$mail->ErrorInfo}',
-                icon: 'error',
-                confirmButtonText: 'Aceptar'
-            });
-        });
+        echo "<script>
+            alert('Error al enviar: {$mail->ErrorInfo}');
+            window.history.back();
         </script>";
     }
-} else {
-    // No hay datos enviados por POST
 }
 ?>

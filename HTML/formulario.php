@@ -19,7 +19,8 @@ $paquete = isset($_GET['paquete']) ? $_GET['paquete'] : null;
     <!-- ANIMATE CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-</head>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 <body>
     
     <div class="content">
@@ -77,11 +78,16 @@ $paquete = isset($_GET['paquete']) ? $_GET['paquete'] : null;
                     </p>
 
                     <p class="block">
-                       <label>Mensaje</label> 
-                        <textarea name="message" rows="3"></textarea>
+                      <label>Mensaje</label> 
+                      <textarea name="message" rows="3"></textarea>
                     </p>
+
                     <p class="block">
-                        <input type="submit">
+                    <div class="g-recaptcha" data-sitekey="6LeHBs0qAAAAAPOGZeds6Zt0ftt_qjt4T16sbNvn"></div>
+                    </p>
+
+                    <p class="block">
+                        <input type="submit" value="Enviar">
                     </p>
                 </form>
                 
