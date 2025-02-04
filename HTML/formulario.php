@@ -166,42 +166,46 @@ $paquete = isset($_GET['paquete']) ? $_GET['paquete'] : null;
                         <div class="columna">Código de Políticas de Gestión de Trafico</div>
                       </a>
               
-                      
-                    <div class="columna"></div>
-                   
-                      <a href="../HTML/paquetes-simplificados.html">
-                        <div class="columna">Plan a tu medida 500Mbps</div>
-                      </a>
-                      <a href="../HTML/aviso-privacidad.html">
-                        <div class="columna">Aviso de Privacidad</div>
-                      </a>
-                      <a href="../HTML/contrato-adhesion.html">
-                        <div class="columna">Contrato de Adhesión</div>
-                      </a>
-                      
+                  
+                  
+                <div class="columna"></div>
+               
+               <a href="../HTML/paquetes-simplificados.html">
+                 <div class="columna">Plan a tu medida 500Mbps</div>
+               </a>
+               <a href="../HTML/aviso-privacidad.html">
+                 <div class="columna">Aviso de Privacidad</div>
+               </a>
+               <a href="../HTML/buzon-sugerencias.html">
+                 <div class="columna">Buzon de Quejas o Sugerencias</div>
+               </a>
+               <div class="columna"></div>
+           
+               
+               
+       
+  
+       
+               <a href="../HTML/paquetes-simplificados.html">
+                 <div class="columna">Plan a tu medida 1000Mbps</div>
+               </a>
+               <a href="../HTML/bolsa_de_trabajo.html">
+                 <div class="columna">Bolsa de trabajo</div>
               
-                      <div class="columna"></div>
               
-                      <a href="../HTML/paquetes-simplificados.html">
-                        <div class="columna">Plan a tu medida 1000Mbps</div>
-                      </a>
-                      <a href="../HTML/bolsa_de_trabajo.html">
-                        <div class="columna">Bolsa de trabajo</div>
-                      </a>
-                      <a href="../HTML/contrato-adhesion.html">
-                        <div class="columna">Registro de Marca</div>
-                      </a>
-              
-                      <div class="columna"></div>
-                      <div class="columna"></div>
-                      <a href="../HTML/sistema-facturacion.html">
-                        <div class="columna">Sistema De Facturación</div>
-                        </a>
-                      <a href="../HTML/buzon-sugerencias.html">
-                        <div class="columna">Buzon de Quejas o Sugerencias</div>
-                      </a>
-              
-                </div>
+             </a>  <a href="../HTML/contrato-adhesion.html">
+               <div class="columna">Contrato de adhesion</div>
+             </a> 
+             <div class="columna"></div>
+             <div class="columna"></div> 
+               <div class="columna"></div>
+               <a href="../HTML/sistema-facturacion.html">
+                 <div class="columna">Sistema De Facturación</div>
+               </a>  
+               <div class="columna"></div>
+
+                
+         </div>
               
                     <div class="letras_footer">
                         <p>© Fastnet, 2024. Internet por fibra óptica y telefonía ilimitada.</p>
