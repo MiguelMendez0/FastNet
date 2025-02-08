@@ -198,10 +198,13 @@ $paquete = isset($_GET['paquete']) ? $_GET['paquete'] : null;
              </a> 
              <div class="columna"></div>
              <div class="columna"></div> 
-               <div class="columna"></div>
+             <a href="../HTML/cancelacion.html">
+          <div class="columna">Cancelación o termino de contrato</div>
+        </a>
                <a href="../HTML/sistema-facturacion.html">
                  <div class="columna">Sistema De Facturación</div>
                </a>  
+               <div class="columna"></div>
                <div class="columna"></div>
 
                 

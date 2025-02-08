@@ -9,6 +9,7 @@ body {
   background: linear-gradient(to right, #0f0c29, #302b63, #2C5364, #A83279);
   background-size: 300% 300%;
   animation: color 15s ease-in-out infinite;
+  zoom: 100%;
 }
 
 @keyframes color{
