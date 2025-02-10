@@ -287,7 +287,7 @@
 
   .texto_typing {
     position: relative;
-    font-size: 15px;  /* Reducir el tamaño de la fuente para pantallas pequeñas */
+    font-size: 14px;  /* Reducir el tamaño de la fuente para pantallas pequeñas */
     width: 100%;  /* Ajustar el ancho al 80% de la pantalla */
     left: 30px;  /* Centramos el texto horizontalmente */
     top: 85--px;  /* Ajustar la distancia desde la parte superior */
@@ -320,95 +320,102 @@
     }
   
     /* Carrusel Movil */
-    .mobile-carousel {
-      display: block;
-      margin-top: 10%;
-      box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.64);
-      position: relative;
-    }
-    
-    .mobile-carousel-inner {
-      position: relative;
-      overflow: hidden;
-      width: 100%;
-    }
-    
-    .mobile-carousel-open:checked + .mobile-carousel-item {
-      position: static;
-      opacity: 1;
-    }
-    
-    .mobile-carousel-item {
-      position: absolute;
-      opacity: 0;
-      transition: opacity 0.6s ease-out;
-    }
-    
-    .mobile-carousel-item img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-    
-    /* Controles visibles */
-    .mobile-carousel-control {
-      background: rgba(0, 0, 0, 0.6);
-      border-radius: 50%;
-      color: #fff;
-      cursor: pointer;
-      font-size: 40px;
-      height: 50px;
-      line-height: 50px;
-      width: 50px;
-      text-align: center;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 10;
-      display: block; /* Siempre visible */
-      transition: background 0.3s;
-      border: 0;
-    }
-    
-    .mobile-carousel-control:hover {
-      background: rgba(0, 0, 0, 0.8);
-    }
-    
-    .mobile-carousel-control.prev {
-      left: 10px;
-      cursor:inherit;
-    }
-    
-    .mobile-carousel-control.next {
-      right: 10px;
-      cursor:inherit;
-    }
-    
-    /* Indicadores */
-    .mobile-carousel-indicators {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      position: absolute;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 10px;
-    }
-    
-    .mobile-carousel-indicators li {
-      display: inline-block;
-    }
-    
-    .mobile-carousel-bullet {
-      color: #ffffff;
-      cursor: pointer;
-      font-size: 50px;
-      text-align: center;
-      cursor: inherit;
-    }
+.mobile-carousel {
+  display: block;
+  margin-top: 10%;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.64);
+  position: relative;
+}
 
+.mobile-carousel-inner {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.mobile-carousel-open:checked + .mobile-carousel-item {
+  position: static;
+  opacity: 1;
+}
+
+.mobile-carousel-item {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+}
+
+.mobile-carousel-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Controles visibles */
+.mobile-carousel-control {
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  cursor: pointer;
+  font-size: 30px;
+  width: 50px;  /* Tamaño uniforme */
+  height: 50px; /* Tamaño uniforme */
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+  border: 0;
+  border-radius: 50%; /* Asegura que los botones sean redondos */
+}
+
+.mobile-carousel-control:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.mobile-carousel-control.prev {
+  left: 10px;
+}
+
+.mobile-carousel-control.next {
+  right: 10px;
+}
+
+/* Asegurar compatibilidad con Safari */
+@supports (-webkit-touch-callout: none) {
+  .mobile-carousel-control {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+  }
+}
+
+/* Indicadores */
+.mobile-carousel-indicators {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.mobile-carousel-indicators li {
+  display: inline-block;
+}
+
+.mobile-carousel-bullet {
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 50px;
+  text-align: center;
+  cursor: inherit;
+}
     
     
 
