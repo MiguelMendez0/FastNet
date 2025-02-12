@@ -12,7 +12,7 @@ function actualizarMunicipios() {
       CHIAPAS: ['PICHUCALCO'],
       COAHUILA: ['ALLENDE', 'MORELOS'],
       CHIHUAHUA: ['DELICIAS', 'PEDRO MEOQUI', 'SANTA CRUZ DE ROSALES'],
-      TABASCO: ['CENTRO', 'COMALCALCO', 'JALAPA', 'JALPA DE MENDEZ', 'NACAJUCA', 'PARAISO', 'TACOTALPA', 'TEAPA']
+      TABASCO: ['CENTRO', 'COMALCALCO', 'JALAPA', 'JALPA DE MENDEZ', 'NACAJUCA', 'PARAISO', 'TACOTALPA', 'TEAPA', 'CUNDUACAN']
     };
   
     // Si el estado seleccionado tiene municipios, agregar opciones
