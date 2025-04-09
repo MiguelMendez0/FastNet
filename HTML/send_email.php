@@ -26,13 +26,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $options = [
         'http' => [
-            'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-            'method'  => 'POST',
+            'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+            'method' => 'POST',
             'content' => http_build_query($data)
         ]
     ];
 
-    $context  = stream_context_create($options);
+    $context = stream_context_create($options);
     $verify = file_get_contents($verifyURL, false, $context);
     $captchaSuccess = json_decode($verify);
 
@@ -52,13 +52,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mail = new PHPMailer(true);
     try {
         $mail->isSMTP();
-        $mail->Host       = 'smtp.ionos.com';
-        $mail->SMTPAuth   = true;
-        $mail->Username   = 'contrataciones@fast-net.com.mx';
-        $mail->Password   = 'Dws@210984';
+        $mail->Host = 'smtp.ionos.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'contrataciones@fast-net.com.mx';
+        $mail->Password = 'F@stnet#09Hq25';
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port       = 587;
-        $mail->CharSet    = 'UTF-8';
+        $mail->Port = 587;
+        $mail->CharSet = 'UTF-8';
 
         $mail->setFrom('contrataciones@fast-net.com.mx', 'CONTRATACION');
         $mail->addAddress('contrataciones@fast-net.com.mx', 'Contratacion FastNet');
